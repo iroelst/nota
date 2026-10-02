@@ -105,6 +105,33 @@ header .brand{flex:1}
 }
 @media print{.menu-toggle,.sidebar-backdrop{display:none!important}}
 
+/* Professional invoice print layout */
+@page{size:A4 portrait;margin:14mm 13mm}
+@media print{
+  html,body{width:100%!important;min-height:0!important;background:#fff!important;color:#172b42!important;font-size:10.5pt!important;line-height:1.45!important;-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+  header,nav,footer,.no-print{display:none!important}
+  .wrap{display:block!important;width:100%!important;max-width:none!important;margin:0!important;padding:0!important}
+  main{width:100%!important}
+  .page{display:none!important}
+  #invoicePrint{display:block!important;width:100%!important;margin:0!important;padding:0!important}
+  #invoicePrint>.panel{display:block!important;width:100%!important;margin:0!important;padding:0!important;border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff!important;overflow:visible!important}
+  #invoicePrint h2{color:#123d70!important;letter-spacing:.01em}
+  #invoicePrint hr{border:0!important;border-top:1.5px solid #d7e1ec!important;margin:15px 0!important}
+  #invoicePrint .tablewrap{overflow:visible!important;margin-top:14px!important;border:1px solid #dce5ef!important;border-radius:7px!important}
+  #invoicePrint table{width:100%!important;min-width:0!important;border-collapse:collapse!important;font-size:9.5pt!important}
+  #invoicePrint thead{display:table-header-group}
+  #invoicePrint tr{break-inside:avoid;page-break-inside:avoid}
+  #invoicePrint th{background:#edf3f9!important;color:#29445f!important;font-size:8.5pt!important;letter-spacing:.04em!important;padding:9px 8px!important;border-bottom:1px solid #d5e0eb!important}
+  #invoicePrint td{padding:9px 8px!important;border-bottom:1px solid #e5ebf2!important;vertical-align:top!important}
+  #invoicePrint tbody tr:last-child td{border-bottom:0!important}
+  #invoicePrint .totals{width:52%!important;max-width:320px!important;margin:14px 0 0 auto!important;padding:10px 13px!important;background:#f7f9fc!important;border:1px solid #e1e8f0!important;border-radius:8px!important;break-inside:avoid;page-break-inside:avoid}
+  #invoicePrint .totals div{padding:5px 0!important}
+  #invoicePrint .totals .grand{border-top:1.5px solid #cbd8e6!important;margin-top:6px!important;padding-top:10px!important;font-size:14pt!important;color:#123d70!important}
+  #invoicePrint .actions{display:none!important}
+  #invoicePrint img{max-width:85px!important;max-height:68px!important}
+  #invoicePrint .print-footer{display:block!important}
+}
+
 </style>
 </head>
 <body>
