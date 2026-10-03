@@ -526,6 +526,115 @@ header .brand{flex:1}
   }
 }
 
+
+/* Pilihan format cetak: A4/A5 warna, thermal 57/80 mm monokrom */
+.print-format-label{display:inline-flex;align-items:center;gap:7px;font-size:12px;color:#526477;font-weight:650}
+.print-format-label select{width:auto;min-width:185px;min-height:42px;padding:8px 10px}
+@media print{
+  body.print-a4 #invoicePrint .invoice-document,
+  body.print-a5 #invoicePrint .invoice-document{
+    width:100%!important;max-width:none!important;margin:0!important;
+    -webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;
+  }
+  body.print-a5 #invoicePrint .invoice-document{font-size:9.5pt!important}
+  body.print-a5 #invoicePrint .invoice-header{padding:10px!important}
+  body.print-a5 #invoicePrint .invoice-logo{width:68px!important;height:68px!important}
+  body.print-a5 #invoicePrint .tablewrap th,
+  body.print-a5 #invoicePrint .tablewrap td{padding:5px 4px!important;font-size:9pt!important}
+  body.print-a5 #invoicePrint .invoice-footer{padding:9px!important;gap:10px!important}
+  body.print-thermal57 #invoicePrint,
+  body.print-thermal80 #invoicePrint{width:100%!important;margin:0!important;padding:0!important}
+  body.print-thermal57 #invoicePrint .invoice-document,
+  body.print-thermal80 #invoicePrint .invoice-document{
+    width:100%!important;max-width:none!important;margin:0!important;padding:0!important;
+    border:0!important;border-radius:0!important;box-shadow:none!important;
+    background:#fff!important;color:#000!important;font-family:Arial,sans-serif!important;
+    font-size:9pt!important;line-height:1.25!important;
+    -webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;
+  }
+  body.print-thermal57 #invoicePrint .invoice-header,
+  body.print-thermal80 #invoicePrint .invoice-header{
+    display:flex!important;flex-direction:column!important;align-items:stretch!important;
+    gap:5px!important;padding:6px 0!important;border:0!important;border-bottom:1px dashed #000!important;
+    border-radius:0!important;background:#fff!important;background-image:none!important;color:#000!important;
+  }
+  body.print-thermal57 #invoicePrint .invoice-header>div:first-child,
+  body.print-thermal80 #invoicePrint .invoice-header>div:first-child{gap:6px!important}
+  body.print-thermal57 #invoicePrint .invoice-logo,
+  body.print-thermal80 #invoicePrint .invoice-logo{width:42px!important;height:42px!important;filter:grayscale(1)!important}
+  body.print-thermal57 #invoicePrint .invoice-header h2,
+  body.print-thermal80 #invoicePrint .invoice-header h2{font-size:13pt!important;color:#000!important}
+  body.print-thermal57 #invoicePrint .invoice-header>div:last-child,
+  body.print-thermal80 #invoicePrint .invoice-header>div:last-child{
+    align-items:flex-start!important;text-align:left!important;gap:4px!important;top:0!important;
+  }
+  body.print-thermal57 #invoicePrint .invoice-number,
+  body.print-thermal80 #invoicePrint .invoice-number{
+    color:#000!important;background:#fff!important;border:1px solid #000!important;
+    border-radius:0!important;padding:2px 4px!important;
+  }
+  body.print-thermal57 #invoicePrint .business-meta,
+  body.print-thermal80 #invoicePrint .business-meta{color:#000!important}
+  body.print-thermal57 #invoicePrint .meta-icon,
+  body.print-thermal80 #invoicePrint .meta-icon,
+  body.print-thermal57 #invoicePrint .footer-icon,
+  body.print-thermal80 #invoicePrint .footer-icon{color:#000!important;fill:#000!important}
+  body.print-thermal57 #invoicePrint hr,
+  body.print-thermal80 #invoicePrint hr{margin:7px 0!important;border-top:1px dashed #000!important}
+  body.print-thermal57 #invoicePrint .tablewrap,
+  body.print-thermal80 #invoicePrint .tablewrap{overflow:visible!important;margin-top:7px!important;border:0!important;border-radius:0!important}
+  body.print-thermal57 #invoicePrint table,
+  body.print-thermal80 #invoicePrint table{width:100%!important;min-width:0!important;table-layout:fixed!important;border-collapse:collapse!important}
+  body.print-thermal57 #invoicePrint th,
+  body.print-thermal57 #invoicePrint td,
+  body.print-thermal80 #invoicePrint th,
+  body.print-thermal80 #invoicePrint td{
+    padding:4px 2px!important;font-size:8pt!important;white-space:normal!important;
+    border-bottom:1px dashed #777!important;color:#000!important;background:#fff!important;
+    overflow-wrap:anywhere!important;
+  }
+  body.print-thermal57 #invoicePrint th,
+  body.print-thermal80 #invoicePrint th{font-weight:700!important}
+  body.print-thermal57 #invoicePrint .totals,
+  body.print-thermal80 #invoicePrint .totals{
+    width:100%!important;max-width:none!important;margin:8px 0!important;padding:5px 0!important;
+    border:0!important;border-top:1px dashed #000!important;border-bottom:1px dashed #000!important;
+    border-radius:0!important;background:#fff!important;color:#000!important;
+  }
+  body.print-thermal57 #invoicePrint .totals .grand,
+  body.print-thermal80 #invoicePrint .totals .grand{
+    background:#fff!important;color:#000!important;border-top:1px solid #000!important;
+    font-size:11pt!important;
+  }
+  body.print-thermal57 #invoicePrint .invoice-footer,
+  body.print-thermal80 #invoicePrint .invoice-footer{
+    display:block!important;margin-top:8px!important;padding:7px 0!important;
+    border:0!important;border-top:1px dashed #000!important;border-radius:0!important;
+    background:#fff!important;background-image:none!important;color:#000!important;
+  }
+  body.print-thermal57 #invoicePrint .invoice-signoff,
+  body.print-thermal80 #invoicePrint .invoice-signoff{
+    width:100%!important;max-width:none!important;min-height:0!important;flex:none!important;
+    margin-top:8px!important;padding:7px 0!important;border:0!important;border-top:1px dashed #000!important;
+  }
+  body.print-thermal57 #invoicePrint .note-text,
+  body.print-thermal80 #invoicePrint .note-text,
+  body.print-thermal57 #invoicePrint .payment-text,
+  body.print-thermal80 #invoicePrint .payment-text{margin:3px 0 7px!important;padding:0!important;background:#fff!important;color:#000!important}
+  body.print-thermal57 #invoicePrint *{box-shadow:none!important;text-shadow:none!important}
+  body.print-thermal80 #invoicePrint *{box-shadow:none!important;text-shadow:none!important}
+  body.print-thermal57 #invoicePrint .invoice-document{font-size:8pt!important}
+  body.print-thermal57 #invoicePrint th,
+  body.print-thermal57 #invoicePrint td{font-size:7.2pt!important;padding:3px 1px!important}
+  body.print-thermal57 #invoicePrint .invoice-header h2{font-size:11pt!important}
+  body.print-thermal57 #invoicePrint .invoice-header>div:last-child h2{font-size:14pt!important}
+  body.print-thermal57 #invoicePrint .totals .grand{font-size:10pt!important}
+}
+@media(max-width:760px){
+  .print-format-label{flex:1 1 100%;align-items:flex-start;flex-direction:column}
+  .print-format-label select{width:100%}
+}
+
 </style>
 </head>
 <body>
@@ -596,8 +705,26 @@ function tableInvoices(a){if(!a.length)return '<div class="empty">Belum ada nota
 async function renderHistory(){let a=(await all('invoices')).sort((x,y)=>y.date.localeCompare(x.date));let q=(document.getElementById('searchInvoice').value||'').toLowerCase();a=a.filter(x=>(x.number+x.customer).toLowerCase().includes(q));document.getElementById('historyTable').innerHTML=tableInvoices(a)}
 document.getElementById('searchInvoice').oninput=renderHistory;
 async function viewInvoice(id){let x=(await all('invoices')).find(z=>z.id===id);if(!x)return;let p=(await all('profile'))[0]||{};let pay=(await all('payments')).filter(z=>z.invoiceId===id);let paid=pay.reduce((s,z)=>s+z.amount,0);if(!pay.length)paid=x.paid||0;
-let el=document.getElementById('invoicePrint');el.innerHTML=`<div class="panel invoice-document"><div class="invoice-header" style="display:flex;justify-content:space-between;gap:20px;align-items:center"><div style="display:flex;align-items:center;gap:20px;min-width:0">${p.logo?`<img class="invoice-logo" src="${p.logo}" style="width:118px;height:118px;object-fit:contain;flex:0 0 auto">`:''}<div style="min-width:0"><h2 style="color:var(--navy);margin:0 0 5px">${esc(p.name||'Nama Usaha')}</h2><div class="business-meta"><svg class="meta-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 13 8 13s8-7.5 8-13a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg><span>${esc(p.address||'')}</span></div><div class="business-meta"><svg class="meta-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.45.55 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17.85 17.85 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .55 3.45 1 1 0 0 1-.25 1z"/></svg><span>${esc(p.phone||'')}</span></div></div></div><div style="text-align:right"><h2>NOTA</h2><b class="invoice-number">${esc(x.number)}</b><div>Tanggal: ${esc(x.date)}</div>${x.due?'<div>Jatuh tempo: '+esc(x.due)+'</div>':''}</div></div><hr style="border:0;border-top:1px solid #ddd;margin:20px 0"><b>Kepada:</b><div>${esc(x.customer)}</div><div>${esc(x.phone||'')}</div><div class="tablewrap" style="margin-top:20px"><table><thead><tr><th>No</th><th>Nama Barang</th><th>Qty</th><th class="num">Harga</th><th class="num">Jumlah</th></tr></thead><tbody>${x.items.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(r.name)}</td><td>${r.qty}</td><td class="num">${moneyHTML(r.price)}</td><td class="num">${moneyHTML(r.amount)}</td></tr>`).join('')}</tbody></table></div><div class="totals"><div><span>Subtotal</span><b>${moneyHTML(x.subtotal)}</b></div><div><span>Diskon</span><b>${moneyHTML(x.discount)}</b></div><div class="grand"><span>Total</span><span>${moneyHTML(x.total)}</span></div><div><span>Dibayar</span><b>${moneyHTML(paid)}</b></div><div><span>Sisa</span><b>${moneyHTML(Math.max(0,x.total-paid))}</b></div><div><span>Status</span><b>${paid>=x.total?'LUNAS':'BELUM LUNAS'}</b></div></div><div class="invoice-footer" style="display:flex;justify-content:space-between;align-items:stretch;gap:24px;margin-top:24px;padding:18px 16px;background:#f0f7ff;border:1px solid #d7e9fb;border-radius:12px"><div style="flex:1;min-width:0"><div class="footer-label"><svg class="footer-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 1.5L18.5 8H14zM7 12h10v1.6H7zm0 4h10v1.6H7zm0-8h5v1.6H7z"/></svg><span>Catatan:</span></div><div class="note-text">${esc(x.note||p.defaultNote||'Barang yang sudah dibeli tidak bisa dikembalikan. Terima kasih.')}</div>${(p.bankName||p.bankNumber||p.bankOwner)?`<div class="footer-label"><svg class="footer-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1 8v2h22V8zm-7 9h3v7H5zm6 0h3v7h-3zm6 0h3v7h-3zM2 19h20v3H2z"/></svg><span>Pembayaran:</span></div><div class="payment-text">${esc([p.bankName,p.bankNumber,p.bankOwner?'a.n. '+p.bankOwner:''].filter(Boolean).join(' • '))}</div>`:''}</div><div class="invoice-signoff" style="width:230px;max-width:35%;flex:0 0 230px;border-left:1px solid #cbdff3;padding:8px 10px 8px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center"><div>Hormat Kami,</div><div style="height:42px;font-style:italic">Ttd</div><b style="color:#174f91">${esc(p.signerName||'')}</b></div></div><div class="actions no-print"><button onclick="window.print()">Cetak / Simpan PDF</button><button class="secondary" onclick="recordPayment('${x.id}')">Catat Pembayaran</button><button class="secondary" onclick="editInvoice('${x.id}')">Edit Nota</button><button class="secondary" onclick="shareInvoice('${x.id}')">Bagikan</button><button class="secondary" onclick="showPage('history')">Kembali</button></div></div>`;
+let el=document.getElementById('invoicePrint');el.innerHTML=`<div class="panel invoice-document"><div class="invoice-header" style="display:flex;justify-content:space-between;gap:20px;align-items:center"><div style="display:flex;align-items:center;gap:20px;min-width:0">${p.logo?`<img class="invoice-logo" src="${p.logo}" style="width:118px;height:118px;object-fit:contain;flex:0 0 auto">`:''}<div style="min-width:0"><h2 style="color:var(--navy);margin:0 0 5px">${esc(p.name||'Nama Usaha')}</h2><div class="business-meta"><svg class="meta-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a8 8 0 0 0-8 8c0 5.5 8 13 8 13s8-7.5 8-13a8 8 0 0 0-8-8zm0 11a3 3 0 1 1 0-6 3 3 0 0 1 0 6z"/></svg><span>${esc(p.address||'')}</span></div><div class="business-meta"><svg class="meta-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M6.6 10.8a15.5 15.5 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1-.24 11 11 0 0 0 3.45.55 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17.85 17.85 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1 11 11 0 0 0 .55 3.45 1 1 0 0 1-.25 1z"/></svg><span>${esc(p.phone||'')}</span></div></div></div><div style="text-align:right"><h2>NOTA</h2><b class="invoice-number">${esc(x.number)}</b><div>Tanggal: ${esc(x.date)}</div>${x.due?'<div>Jatuh tempo: '+esc(x.due)+'</div>':''}</div></div><hr style="border:0;border-top:1px solid #ddd;margin:20px 0"><b>Kepada:</b><div>${esc(x.customer)}</div><div>${esc(x.phone||'')}</div><div class="tablewrap" style="margin-top:20px"><table><thead><tr><th>No</th><th>Nama Barang</th><th>Qty</th><th class="num">Harga</th><th class="num">Jumlah</th></tr></thead><tbody>${x.items.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(r.name)}</td><td>${r.qty}</td><td class="num">${moneyHTML(r.price)}</td><td class="num">${moneyHTML(r.amount)}</td></tr>`).join('')}</tbody></table></div><div class="totals"><div><span>Subtotal</span><b>${moneyHTML(x.subtotal)}</b></div><div><span>Diskon</span><b>${moneyHTML(x.discount)}</b></div><div class="grand"><span>Total</span><span>${moneyHTML(x.total)}</span></div><div><span>Dibayar</span><b>${moneyHTML(paid)}</b></div><div><span>Sisa</span><b>${moneyHTML(Math.max(0,x.total-paid))}</b></div><div><span>Status</span><b>${paid>=x.total?'LUNAS':'BELUM LUNAS'}</b></div></div><div class="invoice-footer" style="display:flex;justify-content:space-between;align-items:stretch;gap:24px;margin-top:24px;padding:18px 16px;background:#f0f7ff;border:1px solid #d7e9fb;border-radius:12px"><div style="flex:1;min-width:0"><div class="footer-label"><svg class="footer-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zm0 1.5L18.5 8H14zM7 12h10v1.6H7zm0 4h10v1.6H7zm0-8h5v1.6H7z"/></svg><span>Catatan:</span></div><div class="note-text">${esc(x.note||p.defaultNote||'Barang yang sudah dibeli tidak bisa dikembalikan. Terima kasih.')}</div>${(p.bankName||p.bankNumber||p.bankOwner)?`<div class="footer-label"><svg class="footer-icon" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2 1 8v2h22V8zm-7 9h3v7H5zm6 0h3v7h-3zm6 0h3v7h-3zM2 19h20v3H2z"/></svg><span>Pembayaran:</span></div><div class="payment-text">${esc([p.bankName,p.bankNumber,p.bankOwner?'a.n. '+p.bankOwner:''].filter(Boolean).join(' • '))}</div>`:''}</div><div class="invoice-signoff" style="width:230px;max-width:35%;flex:0 0 230px;border-left:1px solid #cbdff3;padding:8px 10px 8px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center"><div>Hormat Kami,</div><div style="height:42px;font-style:italic">Ttd</div><b style="color:#174f91">${esc(p.signerName||'')}</b></div></div><div class="actions no-print"><label class="no-print print-format-label">Ukuran Cetak <select id="printFormat" onchange="setPrintFormat(this.value)"><option value="a4" selected>A4 (Warna) — Default</option><option value="a5">A5 (Warna)</option><option value="thermal57">Thermal 57 mm (Hitam Putih)</option><option value="thermal80">Thermal 80 mm (Hitam Putih)</option></select></label><button onclick="printInvoice()">Cetak / Simpan PDF</button><button class="secondary" onclick="recordPayment('${x.id}')">Catat Pembayaran</button><button class="secondary" onclick="editInvoice('${x.id}')">Edit Nota</button><button class="secondary" onclick="shareInvoice('${x.id}')">Bagikan</button><button class="secondary" onclick="showPage('history')">Kembali</button></div></div>`;
 showPage('invoicePrint')}
+
+let currentPrintFormat='a4';
+function setPrintFormat(format){
+  currentPrintFormat=['a4','a5','thermal57','thermal80'].includes(format)?format:'a4';
+  document.body.classList.remove('print-a4','print-a5','print-thermal57','print-thermal80');
+  document.body.classList.add('print-'+currentPrintFormat);
+}
+function printInvoice(){
+  const sel=document.getElementById('printFormat');
+  setPrintFormat(sel?sel.value:'a4');
+  let style=document.getElementById('dynamicPrintPageSize');
+  if(!style){style=document.createElement('style');style.id='dynamicPrintPageSize';document.head.appendChild(style);}
+  const pageSizes={a4:'A4 portrait',a5:'A5 portrait',thermal57:'57mm auto',thermal80:'80mm auto'};
+  style.textContent='@media print { @page { size: '+pageSizes[currentPrintFormat]+'; margin: '+(currentPrintFormat.startsWith('thermal')?'2mm':'8mm')+'; } }';
+  window.print();
+}
+window.addEventListener('afterprint',()=>{document.body.classList.remove('print-a4','print-a5','print-thermal57','print-thermal80');});
+
 async function deleteInvoice(id){
  let x=(await all('invoices')).find(z=>z.id===id);if(!x)return;
  if(!confirm('Hapus nota '+x.number+' beserta riwayat pembayarannya?'))return;
