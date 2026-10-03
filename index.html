@@ -597,6 +597,206 @@ header .brand{flex:1}
 }
 
 </style>
+
+<style id="nota-template-reference-override">
+/* Template nota: mengikuti referensi putih-biru IR Production */
+#invoicePrint > .invoice-document{
+  border:1px solid #d7e9f7!important;
+  border-radius:0!important;
+  background:#fff!important;
+  box-shadow:0 8px 26px rgba(18,61,112,.07)!important;
+  overflow:hidden!important;
+}
+#invoicePrint .invoice-header{
+  box-sizing:border-box!important;
+  min-height:clamp(190px,28vw,290px)!important;
+  padding:clamp(18px,4vw,42px) clamp(16px,4vw,42px) 48px!important;
+  display:flex!important;
+  justify-content:space-between!important;
+  align-items:center!important;
+  gap:18px!important;
+  border:0!important;
+  border-bottom:5px solid #087bc5!important;
+  border-radius:0!important;
+  background-color:#f7fcff!important;
+  background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 340' preserveAspectRatio='none'%3E%3Crect width='1200' height='340' fill='%23f7fcff'/%3E%3Cpath d='M0 0H1200V44C1080 25 1015 35 930 78C820 134 750 211 625 260C480 316 292 300 150 270C78 255 31 231 0 210Z' fill='%23fff'/%3E%3Cpath d='M0 0H285C190 24 112 75 54 139C28 168 12 192 0 216Z' fill='%23dff2ff'/%3E%3Cpath d='M735 0H1008L650 275H520Z' fill='%23d9f1ff'/%3E%3Cpath d='M875 0H1080L720 278H648Z' fill='%23b9e8ff'/%3E%3Cpath d='M1010 0H1200V40C1110 48 1030 88 950 142L765 278H690Z' fill='%23f7fcff'/%3E%3Cpath d='M1095 0H1200V58C1120 67 1060 102 1000 145L820 276H758Z' fill='%230b9fe0'/%3E%3Cpath d='M1165 0H1200V66C1140 74 1100 95 1060 122L870 278H820Z' fill='%23087bc5'/%3E%3Cpath d='M0 226C130 278 245 294 375 291C520 287 642 259 752 216C884 164 1000 76 1200 45V340H0Z' fill='%23dff4ff'/%3E%3Cpath d='M0 248C140 300 270 314 405 306C558 297 670 269 786 226C930 172 1050 91 1200 68V340H0Z' fill='%23bceaff'/%3E%3Cpath d='M0 263C142 312 276 324 420 314C575 303 697 272 814 230C952 181 1070 111 1200 88V340H0Z' fill='%230b8bd2'/%3E%3Cpath d='M0 249C145 298 280 308 420 299C578 290 695 258 810 218C956 167 1075 98 1200 76' fill='none' stroke='%238edcff' stroke-width='7'/%3E%3C/svg%3E")!important;
+  background-size:100% 100%!important;
+  background-position:center!important;
+  background-repeat:no-repeat!important;
+  -webkit-print-color-adjust:exact!important;
+  print-color-adjust:exact!important;
+}
+#invoicePrint .invoice-header > div:first-child{gap:clamp(12px,2vw,24px)!important}
+#invoicePrint .invoice-header .invoice-logo{
+  width:clamp(76px,12vw,142px)!important;
+  height:clamp(76px,12vw,142px)!important;
+  max-width:none!important;max-height:none!important;
+}
+#invoicePrint .invoice-header h2{
+  color:#164b91!important;
+  font-size:clamp(23px,4.4vw,52px)!important;
+  line-height:1.08!important;
+  font-weight:850!important;
+  margin:0 0 10px!important;
+}
+#invoicePrint .invoice-header .biz-meta{
+  font-size:clamp(12px,1.9vw,25px)!important;
+  line-height:1.35!important;
+  gap:10px!important;
+  margin-top:5px!important;
+}
+#invoicePrint .invoice-header .meta-icon{
+  width:clamp(16px,2.3vw,28px)!important;
+  height:clamp(16px,2.3vw,28px)!important;
+  flex-basis:clamp(16px,2.3vw,28px)!important;
+}
+#invoicePrint .invoice-header > div:last-child h2{
+  font-size:clamp(27px,5vw,58px)!important;
+  margin:0 0 4px!important;
+}
+#invoicePrint .invoice-header .invoice-number{
+  font-size:clamp(14px,2.5vw,28px)!important;
+  padding:7px 14px!important;
+  border:1px solid #8bcaf2!important;
+  border-radius:10px!important;
+  background:rgba(231,245,255,.92)!important;
+  color:#164b91!important;
+}
+#invoicePrint .invoice-header > div:last-child{font-size:clamp(12px,2vw,24px)!important}
+#invoicePrint .invoice-document > hr{
+  margin:18px 3.2%!important;
+  border-top:1px solid #d7e9f7!important;
+}
+#invoicePrint .invoice-document > .recipient-block{
+  padding:0 3.2%!important;
+  font-size:clamp(14px,2.1vw,26px)!important;
+  line-height:1.45!important;
+}
+#invoicePrint .recipient-block > b{color:#164b91!important}
+#invoicePrint .invoice-document > .tablewrap{
+  margin:22px 3.2% 0!important;
+  border:1px solid #b9ddf7!important;
+  border-radius:11px!important;
+  overflow:hidden!important;
+}
+#invoicePrint .invoice-document table{width:100%!important;min-width:0!important}
+#invoicePrint .invoice-document thead th{
+  background:linear-gradient(180deg,#eaf7ff,#dff1fc)!important;
+  color:#164b91!important;
+  font-size:clamp(12px,1.8vw,22px)!important;
+  padding:14px 12px!important;
+  border-bottom:1px solid #b9ddf7!important;
+}
+#invoicePrint .invoice-document tbody td{
+  font-size:clamp(12px,1.8vw,22px)!important;
+  padding:14px 12px!important;
+  border-bottom:1px solid #dcebf6!important;
+}
+#invoicePrint .invoice-document th:first-child,
+#invoicePrint .invoice-document td:first-child{text-align:center;width:7%}
+#invoicePrint .invoice-document th:nth-child(2),
+#invoicePrint .invoice-document td:nth-child(2){width:45%}
+#invoicePrint .invoice-document th:nth-child(3),
+#invoicePrint .invoice-document td:nth-child(3){text-align:center;width:10%}
+#invoicePrint .invoice-document th:nth-child(4),
+#invoicePrint .invoice-document td:nth-child(4),
+#invoicePrint .invoice-document th:nth-child(5),
+#invoicePrint .invoice-document td:nth-child(5){width:19%}
+#invoicePrint .totals{
+  width:48%!important;
+  max-width:520px!important;
+  margin:16px 3.2% 0 auto!important;
+  padding:12px 18px!important;
+  border:1px solid #d2e7f7!important;
+  border-radius:12px!important;
+  background:linear-gradient(135deg,#f3faff,#eaf5fc)!important;
+  font-size:clamp(13px,1.8vw,22px)!important;
+}
+#invoicePrint .totals div{padding:8px 2px!important;border-bottom:1px solid #dcebf6!important}
+#invoicePrint .totals div:last-child{border-bottom:0!important}
+#invoicePrint .totals .grand{
+  margin:3px -18px!important;
+  padding:12px 18px!important;
+  background:linear-gradient(90deg,#dff2ff,#c9eaff)!important;
+  color:#164b91!important;
+  font-size:1.28em!important;
+  border:0!important;
+}
+#invoicePrint .invoice-footer{
+  display:flex!important;
+  align-items:stretch!important;
+  gap:24px!important;
+  margin:20px 3.2% 22px!important;
+  padding:20px 22px!important;
+  border:1px solid #d2e7f7!important;
+  border-radius:13px!important;
+  background:linear-gradient(135deg,#f1f8fe,#eaf5fc)!important;
+  font-size:clamp(13px,1.8vw,22px)!important;
+}
+#invoicePrint .footer-heading{color:#164b91!important;gap:10px!important}
+#invoicePrint .footer-icon{width:36px!important;height:36px!important;flex-basis:36px!important}
+#invoicePrint .note-text{
+  margin:8px 0 14px!important;
+  padding:10px 14px!important;
+  border-radius:10px!important;
+  background:#e0f1ff!important;
+}
+#invoicePrint .invoice-signoff{
+  width:29%!important;max-width:29%!important;flex:0 0 29%!important;
+  border-left:1px solid #9fc8e8!important;
+  padding:10px 14px!important;
+  gap:10px!important;
+  color:#24364b!important;
+}
+#invoicePrint .invoice-signoff > div:nth-child(2){height:72px!important}
+#invoicePrint .invoice-signoff b{color:#164b91!important;font-size:1.12em!important}
+@media(max-width:600px){
+  #invoicePrint .invoice-header{min-height:150px!important;padding:15px 12px 35px!important;gap:8px!important}
+  #invoicePrint .invoice-header > div:first-child{gap:8px!important}
+  #invoicePrint .invoice-header .invoice-logo{width:58px!important;height:58px!important}
+  #invoicePrint .invoice-header h2{font-size:16px!important;margin-bottom:5px!important}
+  #invoicePrint .invoice-header .biz-meta{font-size:10px!important;gap:4px!important}
+  #invoicePrint .invoice-header .meta-icon{width:13px!important;height:13px!important;flex-basis:13px!important}
+  #invoicePrint .invoice-header > div:last-child h2{font-size:19px!important}
+  #invoicePrint .invoice-header .invoice-number{font-size:10px!important;padding:4px 6px!important}
+  #invoicePrint .invoice-header > div:last-child{font-size:10px!important}
+  #invoicePrint .invoice-document > .recipient-block{font-size:13px!important;padding:0 12px!important}
+  #invoicePrint .invoice-document > .tablewrap{margin:14px 12px 0!important}
+  #invoicePrint .invoice-document thead th,
+  #invoicePrint .invoice-document tbody td{font-size:11px!important;padding:8px 5px!important}
+  #invoicePrint .totals{width:calc(100% - 24px)!important;margin-right:12px!important;font-size:12px!important}
+  #invoicePrint .invoice-footer{margin:14px 12px!important;padding:12px!important;gap:10px!important;font-size:11px!important}
+  #invoicePrint .footer-icon{width:22px!important;height:22px!important;flex-basis:22px!important}
+  #invoicePrint .invoice-signoff{width:34%!important;max-width:34%!important;flex:0 0 34%!important;padding:8px!important}
+  #invoicePrint .invoice-signoff > div:nth-child(2){height:44px!important}
+}
+@media print{
+  body.print-a4 #invoicePrint .invoice-header,
+  body.print-a5 #invoicePrint .invoice-header{
+    min-height:48mm!important;padding:7mm 7mm 10mm!important;
+    background-size:100% 100%!important;
+  }
+  body.print-a4 #invoicePrint .invoice-header .invoice-logo{width:25mm!important;height:25mm!important;max-width:25mm!important;max-height:25mm!important}
+  body.print-a5 #invoicePrint .invoice-header .invoice-logo{width:20mm!important;height:20mm!important;max-width:20mm!important;max-height:20mm!important}
+  body.print-a4 #invoicePrint .invoice-header h2{font-size:21pt!important}
+  body.print-a5 #invoicePrint .invoice-header h2{font-size:16pt!important}
+  body.print-a4 #invoicePrint .invoice-header .biz-meta{font-size:10pt!important}
+  body.print-a5 #invoicePrint .invoice-header .biz-meta{font-size:8pt!important}
+  body.print-a4 #invoicePrint .invoice-header > div:last-child h2{font-size:24pt!important}
+  body.print-a5 #invoicePrint .invoice-header > div:last-child h2{font-size:19pt!important}
+  body.print-a4 #invoicePrint .invoice-document thead th,
+  body.print-a4 #invoicePrint .invoice-document tbody td{font-size:9pt!important;padding:7px 6px!important}
+  body.print-a5 #invoicePrint .invoice-document thead th,
+  body.print-a5 #invoicePrint .invoice-document tbody td{font-size:7.5pt!important;padding:5px 4px!important}
+  body.print-a4 #invoicePrint .recipient-block{font-size:10pt!important}
+  body.print-a5 #invoicePrint .recipient-block{font-size:8pt!important}
+  body.print-a4 #invoicePrint .totals{font-size:9pt!important}
+  body.print-a5 #invoicePrint .totals{font-size:8pt!important}
+  body.print-a4 #invoicePrint .invoice-footer{font-size:9pt!important}
+  body.print-a5 #invoicePrint .invoice-footer{font-size:8pt!important}
+}
+</style>
+
 </head>
 <body>
 <header><button id="sidebarToggle" class="menu-toggle no-print" type="button" aria-label="Buka atau sembunyikan menu" aria-expanded="true">☰</button><div class="brand"><div class="logo">▤</div><div><h1>NOTA DIGITAL</h1><small>Manajemen nota barang & pembayaran</small></div></div><div id="clock" class="no-print"></div></header>
