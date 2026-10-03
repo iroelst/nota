@@ -453,6 +453,26 @@ header .brand{flex:1}
   }
 }
 
+
+/* Jarak nomor nota dan tanggal: nomor dinaikkan, jarak diperlonggar */
+#invoicePrint .invoice-header .invoice-number {
+  position: relative !important;
+  top: -10px !important;
+  margin-bottom: 10px !important;
+}
+#invoicePrint .invoice-header .invoice-number + div {
+  margin-top: 8px !important;
+}
+@media print {
+  #invoicePrint .invoice-header .invoice-number {
+    top: -8px !important;
+    margin-bottom: 8px !important;
+  }
+  #invoicePrint .invoice-header .invoice-number + div {
+    margin-top: 6px !important;
+  }
+}
+
 </style>
 </head>
 <body>
