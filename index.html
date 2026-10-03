@@ -882,8 +882,9 @@ function printInvoice(){
   setPrintFormat(sel?sel.value:'a4');
   let style=document.getElementById('dynamicPrintPageSize');
   if(!style){style=document.createElement('style');style.id='dynamicPrintPageSize';document.head.appendChild(style);}
-  const pageSizes={a4:'A4 portrait',a5:'A5 portrait',thermal57:'57mm auto',thermal80:'80mm auto'};
-  style.textContent='@media print { @page { size: '+pageSizes[currentPrintFormat]+'; margin: '+(currentPrintFormat.startsWith('thermal')?'2mm':'8mm')+'; } }';
+  const pageSizes={a4:'A4 portrait',a5:'A5 portrait',thermal57:'58mm auto',thermal80:'80mm auto'};
+  const pageMargin=currentPrintFormat.startsWith('thermal')?'0':'8mm';
+  style.textContent='@media print { @page { size: '+pageSizes[currentPrintFormat]+'; margin: '+pageMargin+'; } }';
   window.print();
 }
 window.addEventListener('afterprint',()=>{document.body.classList.remove('print-a4','print-a5','print-thermal57','print-thermal80');});
