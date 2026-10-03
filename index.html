@@ -543,106 +543,56 @@ header .brand{flex:1}
 }
 
 
-/* =====================================================
-   ABSTRACT BLUE WAVE — HEADER NOTA IR PRODUCTION
-   Dipasang sebagai override terakhir agar menggantikan
-   background header lama. Thermal tetap hitam-putih.
-===================================================== */
-
-/* Preview nota di layar */
+/* =========================================================
+   APPROVED ABSTRACT HEADER — SVG VECTOR BACKGROUND
+   A4/A5 color; thermal remains monochrome
+========================================================= */
 #invoicePrint .invoice-header {
-  position: relative !important;
-  overflow: hidden !important;
-  isolation: isolate !important;
-  background:
-    linear-gradient(
-      145deg,
-      transparent 0 73%,
-      rgba(180, 230, 255, .75) 73.2% 78%,
-      rgba(255, 255, 255, .9) 78.2% 84%,
-      rgba(0, 157, 224, .85) 84.2% 100%
-    ),
-    linear-gradient(
-      180deg,
-      #e5f5ff 0%,
-      #ffffff 45%,
-      #f5fbff 100%
-    ) !important;
-  border-bottom: 3px solid #078bd2 !important;
+  position:relative!important;
+  isolation:isolate!important;
+  overflow:hidden!important;
+  background-color:#f7fcff!important;
+  background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201200%20340%22%20preserveAspectRatio%3D%22none%22%3E%0A%3Cdefs%3E%0A%20%20%3ClinearGradient%20id%3D%22base%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23e7f5ff%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%22.48%22%20stop-color%3D%22%23ffffff%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23f4fbff%22%2F%3E%0A%20%20%3C%2FlinearGradient%3E%0A%20%20%3ClinearGradient%20id%3D%22pale%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23d9f0ff%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%2F%3E%0A%20%20%3C%2FlinearGradient%3E%0A%20%20%3ClinearGradient%20id%3D%22cyan%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%0A%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23bceaff%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%22.55%22%20stop-color%3D%22%23eaf8ff%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238ed8fa%22%2F%3E%0A%20%20%3C%2FlinearGradient%3E%0A%20%20%3ClinearGradient%20id%3D%22blue%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%0A%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23078bd2%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%22.52%22%20stop-color%3D%22%2316a7e5%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23087bc5%22%2F%3E%0A%20%20%3C%2FlinearGradient%3E%0A%3C%2Fdefs%3E%0A%3Crect%20width%3D%221200%22%20height%3D%22340%22%20fill%3D%22url%28%23base%29%22%2F%3E%0A%3C%21--%20White%20central%20sweep%20--%3E%0A%3Cpath%20d%3D%22M0%200H1200V44C1080%2025%201015%2035%20930%2078C820%20134%20750%20211%20625%20260C480%20316%20292%20300%20150%20270C78%20255%2031%20231%200%20210Z%22%20fill%3D%22%23fff%22%20opacity%3D%22.96%22%2F%3E%0A%3C%21--%20Pale%20curved%20band%20at%20upper%20left%20--%3E%0A%3Cpath%20d%3D%22M0%200H285C190%2024%20112%2075%2054%20139C28%20168%2012%20192%200%20216Z%22%20fill%3D%22%23dff2ff%22%20opacity%3D%22.82%22%2F%3E%0A%3C%21--%20Layered%20diagonal%20ribbons%20on%20the%20right%20--%3E%0A%3Cpath%20d%3D%22M735%200H1008L650%20275H520Z%22%20fill%3D%22%23d9f1ff%22%20opacity%3D%22.92%22%2F%3E%0A%3Cpath%20d%3D%22M875%200H1080L720%20278H648Z%22%20fill%3D%22%23b9e8ff%22%20opacity%3D%22.9%22%2F%3E%0A%3Cpath%20d%3D%22M1010%200H1200V40C1110%2048%201030%2088%20950%20142L765%20278H690Z%22%20fill%3D%22%23f7fcff%22%20opacity%3D%22.95%22%2F%3E%0A%3Cpath%20d%3D%22M1095%200H1200V58C1120%2067%201060%20102%201000%20145L820%20276H758Z%22%20fill%3D%22%230b9fe0%22%20opacity%3D%22.9%22%2F%3E%0A%3Cpath%20d%3D%22M1165%200H1200V66C1140%2074%201100%2095%201060%20122L870%20278H820Z%22%20fill%3D%22%23087bc5%22%20opacity%3D%22.95%22%2F%3E%0A%3C%21--%20Soft%20pale%20wave%20across%20lower%20header%20--%3E%0A%3Cpath%20d%3D%22M0%20226C130%20278%20245%20294%20375%20291C520%20287%20642%20259%20752%20216C884%20164%201000%2076%201200%2045V340H0Z%22%20fill%3D%22%23dff4ff%22%20opacity%3D%22.85%22%2F%3E%0A%3Cpath%20d%3D%22M0%20248C140%20300%20270%20314%20405%20306C558%20297%20670%20269%20786%20226C930%20172%201050%2091%201200%2068V340H0Z%22%20fill%3D%22url%28%23cyan%29%22%20opacity%3D%22.9%22%2F%3E%0A%3C%21--%20Main%20blue%20lower%20ribbon%20--%3E%0A%3Cpath%20d%3D%22M0%20263C142%20312%20276%20324%20420%20314C575%20303%20697%20272%20814%20230C952%20181%201070%20111%201200%2088V340H0Z%22%20fill%3D%22url%28%23blue%29%22%2F%3E%0A%3C%21--%20Thin%20bright%20highlight%20above%20blue%20--%3E%0A%3Cpath%20d%3D%22M0%20249C145%20298%20280%20308%20420%20299C578%20290%20695%20258%20810%20218C956%20167%201075%2098%201200%2076%22%20fill%3D%22none%22%20stroke%3D%22%238edcff%22%20stroke-width%3D%227%22%20opacity%3D%22.9%22%2F%3E%0A%3C%21--%20Deep%20blue%20edge%20--%3E%0A%3Cpath%20d%3D%22M0%20281C145%20326%20280%20335%20424%20326C580%20316%20700%20285%20820%20243C966%20192%201082%20125%201200%20105V340H0Z%22%20fill%3D%22%23087bc5%22%20opacity%3D%22.62%22%2F%3E%0A%3C%2Fsvg%3E")!important;
+  background-repeat:no-repeat!important;
+  background-position:center center!important;
+  background-size:100% 100%!important;
+  border:0!important;
+  border-bottom:1.5mm solid #087bc5!important;
+  border-radius:0!important;
+  -webkit-print-color-adjust:exact!important;
+  print-color-adjust:exact!important;
 }
-
-#invoicePrint .invoice-header::before {
-  content: "" !important;
-  position: absolute !important;
-  z-index: 0 !important;
-  inset: 0 !important;
-  background:
-    radial-gradient(
-      ellipse 90% 100% at 34% 0%,
-      transparent 0 69%,
-      rgba(255,255,255,.95) 69.5% 83%,
-      transparent 83.5%
-    ),
-    linear-gradient(
-      150deg,
-      transparent 0 57%,
-      rgba(205,239,255,.85) 57.5% 65%,
-      transparent 65.5%
-    ) !important;
-  pointer-events: none !important;
-}
-
+#invoicePrint .invoice-header::before,
 #invoicePrint .invoice-header::after {
-  content: "" !important;
-  position: absolute !important;
-  z-index: 0 !important;
-  left: -3% !important;
-  bottom: -1px !important;
-  width: 106% !important;
-  height: 20mm !important;
-  background:
-    linear-gradient(
-      105deg,
-      #078bd2 0%,
-      #078bd2 18%,
-      transparent 18.5%,
-      transparent 83%,
-      #00a6e8 83.5%,
-      #087bc5 100%
-    ) !important;
-  clip-path: polygon(
-    0 65%, 15% 100%, 38% 92%, 57% 65%,
-    76% 18%, 90% 0, 100% 0, 100% 100%, 0 100%
-  ) !important;
-  pointer-events: none !important;
+  content:none!important;
+  display:none!important;
 }
-
 #invoicePrint .invoice-header > div {
-  position: relative !important;
-  z-index: 2 !important;
+  position:relative!important;
+  z-index:1!important;
 }
-
 @media print {
   body.print-a4 #invoicePrint .invoice-header,
   body.print-a5 #invoicePrint .invoice-header {
-    -webkit-print-color-adjust: exact !important;
-    print-color-adjust: exact !important;
+    background-image:url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%201200%20340%22%20preserveAspectRatio%3D%22none%22%3E%0A%3Cdefs%3E%0A%20%20%3ClinearGradient%20id%3D%22base%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%220%22%20y2%3D%221%22%3E%0A%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23e7f5ff%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%22.48%22%20stop-color%3D%22%23ffffff%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23f4fbff%22%2F%3E%0A%20%20%3C%2FlinearGradient%3E%0A%20%20%3ClinearGradient%20id%3D%22pale%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%221%22%3E%0A%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23d9f0ff%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23ffffff%22%2F%3E%0A%20%20%3C%2FlinearGradient%3E%0A%20%20%3ClinearGradient%20id%3D%22cyan%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%0A%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23bceaff%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%22.55%22%20stop-color%3D%22%23eaf8ff%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%238ed8fa%22%2F%3E%0A%20%20%3C%2FlinearGradient%3E%0A%20%20%3ClinearGradient%20id%3D%22blue%22%20x1%3D%220%22%20y1%3D%220%22%20x2%3D%221%22%20y2%3D%220%22%3E%0A%20%20%20%20%3Cstop%20offset%3D%220%22%20stop-color%3D%22%23078bd2%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%22.52%22%20stop-color%3D%22%2316a7e5%22%2F%3E%0A%20%20%20%20%3Cstop%20offset%3D%221%22%20stop-color%3D%22%23087bc5%22%2F%3E%0A%20%20%3C%2FlinearGradient%3E%0A%3C%2Fdefs%3E%0A%3Crect%20width%3D%221200%22%20height%3D%22340%22%20fill%3D%22url%28%23base%29%22%2F%3E%0A%3C%21--%20White%20central%20sweep%20--%3E%0A%3Cpath%20d%3D%22M0%200H1200V44C1080%2025%201015%2035%20930%2078C820%20134%20750%20211%20625%20260C480%20316%20292%20300%20150%20270C78%20255%2031%20231%200%20210Z%22%20fill%3D%22%23fff%22%20opacity%3D%22.96%22%2F%3E%0A%3C%21--%20Pale%20curved%20band%20at%20upper%20left%20--%3E%0A%3Cpath%20d%3D%22M0%200H285C190%2024%20112%2075%2054%20139C28%20168%2012%20192%200%20216Z%22%20fill%3D%22%23dff2ff%22%20opacity%3D%22.82%22%2F%3E%0A%3C%21--%20Layered%20diagonal%20ribbons%20on%20the%20right%20--%3E%0A%3Cpath%20d%3D%22M735%200H1008L650%20275H520Z%22%20fill%3D%22%23d9f1ff%22%20opacity%3D%22.92%22%2F%3E%0A%3Cpath%20d%3D%22M875%200H1080L720%20278H648Z%22%20fill%3D%22%23b9e8ff%22%20opacity%3D%22.9%22%2F%3E%0A%3Cpath%20d%3D%22M1010%200H1200V40C1110%2048%201030%2088%20950%20142L765%20278H690Z%22%20fill%3D%22%23f7fcff%22%20opacity%3D%22.95%22%2F%3E%0A%3Cpath%20d%3D%22M1095%200H1200V58C1120%2067%201060%20102%201000%20145L820%20276H758Z%22%20fill%3D%22%230b9fe0%22%20opacity%3D%22.9%22%2F%3E%0A%3Cpath%20d%3D%22M1165%200H1200V66C1140%2074%201100%2095%201060%20122L870%20278H820Z%22%20fill%3D%22%23087bc5%22%20opacity%3D%22.95%22%2F%3E%0A%3C%21--%20Soft%20pale%20wave%20across%20lower%20header%20--%3E%0A%3Cpath%20d%3D%22M0%20226C130%20278%20245%20294%20375%20291C520%20287%20642%20259%20752%20216C884%20164%201000%2076%201200%2045V340H0Z%22%20fill%3D%22%23dff4ff%22%20opacity%3D%22.85%22%2F%3E%0A%3Cpath%20d%3D%22M0%20248C140%20300%20270%20314%20405%20306C558%20297%20670%20269%20786%20226C930%20172%201050%2091%201200%2068V340H0Z%22%20fill%3D%22url%28%23cyan%29%22%20opacity%3D%22.9%22%2F%3E%0A%3C%21--%20Main%20blue%20lower%20ribbon%20--%3E%0A%3Cpath%20d%3D%22M0%20263C142%20312%20276%20324%20420%20314C575%20303%20697%20272%20814%20230C952%20181%201070%20111%201200%2088V340H0Z%22%20fill%3D%22url%28%23blue%29%22%2F%3E%0A%3C%21--%20Thin%20bright%20highlight%20above%20blue%20--%3E%0A%3Cpath%20d%3D%22M0%20249C145%20298%20280%20308%20420%20299C578%20290%20695%20258%20810%20218C956%20167%201075%2098%201200%2076%22%20fill%3D%22none%22%20stroke%3D%22%238edcff%22%20stroke-width%3D%227%22%20opacity%3D%22.9%22%2F%3E%0A%3C%21--%20Deep%20blue%20edge%20--%3E%0A%3Cpath%20d%3D%22M0%20281C145%20326%20280%20335%20424%20326C580%20316%20700%20285%20820%20243C966%20192%201082%20125%201200%20105V340H0Z%22%20fill%3D%22%23087bc5%22%20opacity%3D%22.62%22%2F%3E%0A%3C%2Fsvg%3E")!important;
+    background-size:100% 100%!important;
+    -webkit-print-color-adjust:exact!important;
+    print-color-adjust:exact!important;
   }
-}
-
-/* Thermal: paksa tetap polos hitam-putih tanpa abstrak */
-@media print {
   body.print-thermal80 #invoicePrint .invoice-header,
   body.print-thermal58 #invoicePrint .invoice-header {
-    background: #fff !important;
-    border-bottom: 1px dashed #000 !important;
+    background:#fff!important;
+    background-image:none!important;
+    border:0!important;
+    border-bottom:1px dashed #000!important;
+    color:#000!important;
   }
   body.print-thermal80 #invoicePrint .invoice-header::before,
   body.print-thermal80 #invoicePrint .invoice-header::after,
   body.print-thermal58 #invoicePrint .invoice-header::before,
   body.print-thermal58 #invoicePrint .invoice-header::after {
-    display: none !important;
-    content: none !important;
+    content:none!important;
+    display:none!important;
   }
 }
 
