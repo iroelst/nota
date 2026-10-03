@@ -919,7 +919,39 @@ async function shareInvoice(id){
   else{const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=file.name;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);await navigator.clipboard?.writeText(textMsg);alert('Gambar nota berhasil diunduh dan ringkasan disalin. Silakan lampirkan gambar saat membagikan.');}
  }catch(e){console.error('Bagikan nota:',e);try{await navigator.clipboard?.writeText(textMsg)}catch(_){}alert('Gambar nota belum dapat dibagikan. Periksa koneksi internet, atau gunakan Cetak / Simpan PDF.');}
 }
-async function renderCustomers(){let a=await all('customers');document.getElementById('customerTable').innerHTML=a.length?'<div class="tablewrap"><table><tr><th>Nama</th><th>Telepon</th><th>Alamat</th><th></th></tr>'+a.map(x=>`<tr><td>${esc(x.name)}</td><td>${esc(x.phone||'-')}</td><td>${esc(x.address||'-')}</td><td><button class="small danger" onclick="removeRecord('customers','${x.id}')">Hapus</button></td></tr>`).join('')+'</table></div>':'<div class="empty">Belum ada pelanggan.</div>'}
+let editingCustomerId=null;
+async function renderCustomers(){
+ let a=await all('customers');
+ document.getElementById('customerTable').innerHTML=a.length
+ ?'<div class="tablewrap"><table><tr><th>Nama</th><th>Telepon</th><th>Alamat</th><th>Aksi</th></tr>'+
+ a.map(x=>`<tr><td>${esc(x.name)}</td><td>${esc(x.phone||'-')}</td><td>${esc(x.address||'-')}</td><td><div class="actions"><button type="button" class="small secondary" onclick="editCustomer('${x.id}')">Edit</button><button type="button" class="small danger" onclick="removeRecord('customers','${x.id}')">Hapus</button></div></td></tr>`).join('')+
+ '</table></div>':'<div class="empty">Belum ada pelanggan.</div>';
+}
+async function editCustomer(id){
+ const c=(await all('customers')).find(x=>x.id===id);
+ if(!c)return;
+ editingCustomerId=id;
+ document.getElementById('custName').value=c.name||'';
+ document.getElementById('custPhone').value=c.phone||'';
+ document.getElementById('custAddress').value=c.address||'';
+ const title=document.querySelector('#customers .panel h3');
+ const submit=document.querySelector('#customerForm button[type="submit"],#customerForm button:not([type])');
+ if(submit)submit.textContent='Simpan Perubahan';
+ let cancel=document.getElementById('cancelCustomerEdit');
+ if(!cancel){
+  cancel=document.createElement('button');cancel.type='button';cancel.id='cancelCustomerEdit';cancel.className='secondary';
+  cancel.textContent='Batal Edit';cancel.onclick=resetCustomerForm;
+  document.querySelector('#customerForm .actions').appendChild(cancel);
+ }
+ document.getElementById('custName').focus();
+}
+function resetCustomerForm(){
+ editingCustomerId=null;
+ document.getElementById('customerForm').reset();
+ const submit=document.querySelector('#customerForm button[type="submit"],#customerForm button:not([type])');
+ if(submit)submit.textContent='Simpan Pelanggan';
+ document.getElementById('cancelCustomerEdit')?.remove();
+}
 document.getElementById('customerForm').addEventListener('submit',async e=>{
  e.preventDefault();
  const form=e.currentTarget;
@@ -931,19 +963,20 @@ document.getElementById('customerForm').addEventListener('submit',async e=>{
  if(!db){alert('Database belum siap. Muat ulang aplikasi lalu coba lagi.');return}
  if(btn){btn.disabled=true;btn.textContent='Menyimpan...'}
  try{
-  await put('customers',{id:uid(),name,phone,address});
-  form.reset();
+  const id=editingCustomerId||uid();
+  await put('customers',{id,name,phone,address});
+  resetCustomerForm();
   await renderCustomers();
   await updateDatalists();
-  alert('Pelanggan berhasil disimpan.');
+  alert(editingCustomerId?'Pelanggan berhasil diperbarui.':'Pelanggan berhasil disimpan.');
  }catch(err){
   console.error('Gagal menyimpan pelanggan:',err);
   alert('Pelanggan gagal disimpan: '+(err?.message||'Terjadi kesalahan penyimpanan.'));
  }finally{
-  if(btn){btn.disabled=false;btn.textContent='Simpan Pelanggan'}
+  if(btn){btn.disabled=false;btn.textContent=editingCustomerId?'Simpan Perubahan':'Simpan Pelanggan'}
  }
 });
-async function removeRecord(s,id){if(confirm('Hapus data ini?')){await del(s,id);renderCustomers();updateDatalists()}}
+async function removeRecord(s,id){if(confirm('Hapus data ini?')){await del(s,id);if(s==='customers'&&editingCustomerId===id)resetCustomerForm();renderCustomers();updateDatalists()}}
 async function loadProfile(){let p=(await all('profile'))[0]||{};bizName.value=p.name||'';bizPhone.value=p.phone||'';bizAddress.value=p.address||'';bankName.value=p.bankName||'';bankNumber.value=p.bankNumber||'';bankOwner.value=p.bankOwner||'';signerName.value=p.signerName||'';bizDefaultNote.value=p.defaultNote??'Barang yang sudah dibeli tidak bisa dikembalikan. Terima kasih.';logoData=p.logo||'';logoPreview.innerHTML=logoData?`<img src="${logoData}" style="max-width:110px;max-height:80px;object-fit:contain">`:'Belum ada logo'}
 logoFile.onchange=e=>{let f=e.target.files[0];if(!f)return;let r=new FileReader();r.onload=()=>{logoData=r.result;logoPreview.innerHTML=`<img src="${logoData}" style="max-width:110px;max-height:80px;object-fit:contain">`};r.readAsDataURL(f)};
 profileForm.onsubmit=async e=>{e.preventDefault();await put('profile',{id:'main',name:bizName.value,phone:bizPhone.value,address:bizAddress.value,bankName:bankName.value,bankNumber:bankNumber.value,bankOwner:bankOwner.value,signerName:signerName.value.trim(),defaultNote:bizDefaultNote.value.trim(),logo:logoData});alert('Profil usaha tersimpan.')};
