@@ -598,23 +598,21 @@ header .brand{flex:1}
 
 </style>
 
-<style id="nota-template-reference-override">
-/* Template nota: mengikuti referensi putih-biru IR Production */
-#invoicePrint > .invoice-document{
-  border:1px solid #d7e9f7!important;
+<style id="nota-template-final-match">
+/* Penyesuaian berdasarkan screenshot hasil cetak dan desain acuan */
+#invoicePrint>.invoice-document{
+  padding:0!important;
+  border:1px solid #d6e8f5!important;
   border-radius:0!important;
   background:#fff!important;
-  box-shadow:0 8px 26px rgba(18,61,112,.07)!important;
+  box-shadow:0 5px 18px rgba(20,70,120,.06)!important;
   overflow:hidden!important;
 }
+/* Header gelombang biru */
 #invoicePrint .invoice-header{
   box-sizing:border-box!important;
-  min-height:clamp(190px,28vw,290px)!important;
-  padding:clamp(18px,4vw,42px) clamp(16px,4vw,42px) 48px!important;
-  display:flex!important;
-  justify-content:space-between!important;
-  align-items:center!important;
-  gap:18px!important;
+  min-height:clamp(190px,25.5vw,290px)!important;
+  padding:clamp(20px,4vw,42px) clamp(20px,4vw,42px) 48px!important;
   border:0!important;
   border-bottom:5px solid #087bc5!important;
   border-radius:0!important;
@@ -626,174 +624,186 @@ header .brand{flex:1}
   -webkit-print-color-adjust:exact!important;
   print-color-adjust:exact!important;
 }
-#invoicePrint .invoice-header > div:first-child{gap:clamp(12px,2vw,24px)!important}
+#invoicePrint .invoice-header>div{position:relative;z-index:1}
 #invoicePrint .invoice-header .invoice-logo{
-  width:clamp(76px,12vw,142px)!important;
-  height:clamp(76px,12vw,142px)!important;
-  max-width:none!important;max-height:none!important;
+  width:clamp(76px,11vw,125px)!important;
+  height:clamp(76px,11vw,125px)!important;
+  max-width:none!important;max-height:none!important;object-fit:contain!important;
 }
 #invoicePrint .invoice-header h2{
-  color:#164b91!important;
-  font-size:clamp(23px,4.4vw,52px)!important;
-  line-height:1.08!important;
-  font-weight:850!important;
-  margin:0 0 10px!important;
+  color:#164b91!important;font-weight:850!important;
+  font-size:clamp(23px,4.4vw,49px)!important;line-height:1.08!important;
 }
 #invoicePrint .invoice-header .biz-meta{
-  font-size:clamp(12px,1.9vw,25px)!important;
-  line-height:1.35!important;
-  gap:10px!important;
-  margin-top:5px!important;
+  display:flex!important;align-items:center!important;
+  gap:9px!important;margin-top:5px!important;
+  font-size:clamp(12px,1.9vw,23px)!important;line-height:1.35!important;
 }
 #invoicePrint .invoice-header .meta-icon{
-  width:clamp(16px,2.3vw,28px)!important;
-  height:clamp(16px,2.3vw,28px)!important;
-  flex-basis:clamp(16px,2.3vw,28px)!important;
+  width:clamp(16px,2.2vw,26px)!important;
+  height:clamp(16px,2.2vw,26px)!important;
+  flex:0 0 clamp(16px,2.2vw,26px)!important;color:#1769b4!important;
 }
-#invoicePrint .invoice-header > div:last-child h2{
-  font-size:clamp(27px,5vw,58px)!important;
-  margin:0 0 4px!important;
+#invoicePrint .invoice-header>div:last-child h2{
+  font-size:clamp(27px,4.8vw,56px)!important;margin:0 0 5px!important;
 }
 #invoicePrint .invoice-header .invoice-number{
-  font-size:clamp(14px,2.5vw,28px)!important;
-  padding:7px 14px!important;
-  border:1px solid #8bcaf2!important;
-  border-radius:10px!important;
-  background:rgba(231,245,255,.92)!important;
-  color:#164b91!important;
+  display:inline-block!important;padding:7px 13px!important;
+  border:1px solid #8bcaf2!important;border-radius:10px!important;
+  background:rgba(226,243,255,.94)!important;color:#145da8!important;
+  font-size:clamp(14px,2.3vw,26px)!important;
 }
-#invoicePrint .invoice-header > div:last-child{font-size:clamp(12px,2vw,24px)!important}
-#invoicePrint .invoice-document > hr{
-  margin:18px 3.2%!important;
-  border-top:1px solid #d7e9f7!important;
+#invoicePrint .invoice-header>div:last-child{font-size:clamp(12px,1.9vw,22px)!important}
+/* Garis pemisah dan penerima: rapat seperti acuan */
+#invoicePrint .invoice-document>hr{
+  margin:8px 3.2% 12px!important;
+  border:0!important;border-top:1px solid #d8e8f7!important;
 }
-#invoicePrint .invoice-document > .recipient-block{
+#invoicePrint .invoice-document>.recipient-block{
   padding:0 3.2%!important;
-  font-size:clamp(14px,2.1vw,26px)!important;
+  font-size:clamp(14px,2vw,24px)!important;
   line-height:1.45!important;
 }
-#invoicePrint .recipient-block > b{color:#164b91!important}
-#invoicePrint .invoice-document > .tablewrap{
-  margin:22px 3.2% 0!important;
-  border:1px solid #b9ddf7!important;
-  border-radius:11px!important;
+#invoicePrint .recipient-block>b{color:#164b91!important}
+/* Tabel: baris lebih lega dan rasio kolom mengikuti referensi */
+#invoicePrint .invoice-document>.tablewrap{
+  margin:20px 3.2% 0!important;
+  border:1px solid #b9ddf7!important;border-radius:11px!important;
   overflow:hidden!important;
 }
-#invoicePrint .invoice-document table{width:100%!important;min-width:0!important}
+#invoicePrint .invoice-document table{
+  width:100%!important;min-width:0!important;border-collapse:collapse!important;
+  table-layout:fixed!important;
+}
 #invoicePrint .invoice-document thead th{
+  padding:13px 11px!important;
   background:linear-gradient(180deg,#eaf7ff,#dff1fc)!important;
-  color:#164b91!important;
-  font-size:clamp(12px,1.8vw,22px)!important;
-  padding:14px 12px!important;
-  border-bottom:1px solid #b9ddf7!important;
+  color:#164b91!important;border-bottom:1px solid #b9ddf7!important;
+  font-size:clamp(12px,1.7vw,21px)!important;line-height:1.35!important;
 }
 #invoicePrint .invoice-document tbody td{
-  font-size:clamp(12px,1.8vw,22px)!important;
-  padding:14px 12px!important;
+  padding:13px 11px!important;
   border-bottom:1px solid #dcebf6!important;
+  font-size:clamp(12px,1.7vw,21px)!important;
+  line-height:1.45!important;vertical-align:middle!important;
 }
+#invoicePrint .invoice-document tbody tr:last-child td{border-bottom:0!important}
 #invoicePrint .invoice-document th:first-child,
-#invoicePrint .invoice-document td:first-child{text-align:center;width:7%}
+#invoicePrint .invoice-document td:first-child{width:7%;text-align:center}
 #invoicePrint .invoice-document th:nth-child(2),
 #invoicePrint .invoice-document td:nth-child(2){width:45%}
 #invoicePrint .invoice-document th:nth-child(3),
-#invoicePrint .invoice-document td:nth-child(3){text-align:center;width:10%}
+#invoicePrint .invoice-document td:nth-child(3){width:10%;text-align:center}
 #invoicePrint .invoice-document th:nth-child(4),
-#invoicePrint .invoice-document td:nth-child(4),
+#invoicePrint .invoice-document td:nth-child(4){width:19%}
 #invoicePrint .invoice-document th:nth-child(5),
 #invoicePrint .invoice-document td:nth-child(5){width:19%}
+#invoicePrint .invoice-document td.num{white-space:nowrap!important;text-align:right!important}
+#invoicePrint .money-pair{
+  display:flex!important;align-items:baseline!important;
+  justify-content:space-between!important;gap:8px!important;
+  width:100%!important;white-space:nowrap!important;
+}
+#invoicePrint .money-currency{flex:0 0 auto!important;text-align:left!important}
+#invoicePrint .money-value{flex:1 1 auto!important;text-align:right!important}
+/* Ringkasan pembayaran */
 #invoicePrint .totals{
-  width:48%!important;
-  max-width:520px!important;
-  margin:16px 3.2% 0 auto!important;
-  padding:12px 18px!important;
-  border:1px solid #d2e7f7!important;
-  border-radius:12px!important;
+  width:48%!important;max-width:510px!important;
+  margin:16px 3.2% 0 auto!important;padding:11px 17px!important;
+  border:1px solid #d2e7f7!important;border-radius:12px!important;
   background:linear-gradient(135deg,#f3faff,#eaf5fc)!important;
-  font-size:clamp(13px,1.8vw,22px)!important;
+  font-size:clamp(13px,1.7vw,21px)!important;
 }
-#invoicePrint .totals div{padding:8px 2px!important;border-bottom:1px solid #dcebf6!important}
+#invoicePrint .totals div{
+  display:flex!important;justify-content:space-between!important;
+  align-items:center!important;padding:7px 2px!important;
+  border-bottom:1px solid #dcebf6!important;
+}
 #invoicePrint .totals div:last-child{border-bottom:0!important}
+#invoicePrint .totals b,
+#invoicePrint .totals>div>span:last-child{
+  min-width:48%!important;text-align:right!important;
+  font-variant-numeric:tabular-nums!important;
+}
+#invoicePrint .totals .money-pair{min-width:0!important}
 #invoicePrint .totals .grand{
-  margin:3px -18px!important;
-  padding:12px 18px!important;
+  margin:3px -17px!important;padding:11px 17px!important;
   background:linear-gradient(90deg,#dff2ff,#c9eaff)!important;
-  color:#164b91!important;
-  font-size:1.28em!important;
-  border:0!important;
+  border:0!important;color:#164b91!important;font-size:1.25em!important;
 }
+/* Footer: kiri catatan/pembayaran, kanan tanda tangan */
 #invoicePrint .invoice-footer{
-  display:flex!important;
-  align-items:stretch!important;
-  gap:24px!important;
-  margin:20px 3.2% 22px!important;
-  padding:20px 22px!important;
-  border:1px solid #d2e7f7!important;
-  border-radius:13px!important;
+  display:flex!important;align-items:stretch!important;gap:24px!important;
+  margin:20px 3.2% 20px!important;padding:18px 20px!important;
+  border:1px solid #d2e7f7!important;border-radius:13px!important;
   background:linear-gradient(135deg,#f1f8fe,#eaf5fc)!important;
-  font-size:clamp(13px,1.8vw,22px)!important;
+  font-size:clamp(13px,1.7vw,21px)!important;
 }
-#invoicePrint .footer-heading{color:#164b91!important;gap:10px!important}
-#invoicePrint .footer-icon{width:36px!important;height:36px!important;flex-basis:36px!important}
+#invoicePrint .invoice-footer>div:first-child{flex:1 1 auto!important;min-width:0!important}
+#invoicePrint .footer-heading{display:flex!important;align-items:center!important;gap:10px!important;color:#164b91!important}
+#invoicePrint .footer-icon{width:34px!important;height:34px!important;flex:0 0 34px!important;color:#1268b5!important}
 #invoicePrint .note-text{
-  margin:8px 0 14px!important;
-  padding:10px 14px!important;
-  border-radius:10px!important;
-  background:#e0f1ff!important;
+  margin:7px 0 13px!important;padding:10px 13px!important;
+  border-radius:10px!important;background:#e0f1ff!important;
 }
 #invoicePrint .invoice-signoff{
-  width:29%!important;max-width:29%!important;flex:0 0 29%!important;
+  width:30%!important;max-width:30%!important;flex:0 0 30%!important;
   border-left:1px solid #9fc8e8!important;
-  padding:10px 14px!important;
-  gap:10px!important;
-  color:#24364b!important;
+  padding:10px 12px 10px 20px!important;
+  gap:8px!important;justify-content:space-around!important;
 }
-#invoicePrint .invoice-signoff > div:nth-child(2){height:72px!important}
-#invoicePrint .invoice-signoff b{color:#164b91!important;font-size:1.12em!important}
+#invoicePrint .invoice-signoff>div:nth-child(2){height:72px!important}
+#invoicePrint .invoice-signoff b{color:#164b91!important;font-size:1.08em!important}
+/* Layar sempit tetap terbaca */
 @media(max-width:600px){
-  #invoicePrint .invoice-header{min-height:150px!important;padding:15px 12px 35px!important;gap:8px!important}
-  #invoicePrint .invoice-header > div:first-child{gap:8px!important}
+  #invoicePrint .invoice-header{min-height:145px!important;padding:14px 10px 34px!important;gap:8px!important}
   #invoicePrint .invoice-header .invoice-logo{width:58px!important;height:58px!important}
   #invoicePrint .invoice-header h2{font-size:16px!important;margin-bottom:5px!important}
   #invoicePrint .invoice-header .biz-meta{font-size:10px!important;gap:4px!important}
   #invoicePrint .invoice-header .meta-icon{width:13px!important;height:13px!important;flex-basis:13px!important}
-  #invoicePrint .invoice-header > div:last-child h2{font-size:19px!important}
+  #invoicePrint .invoice-header>div:last-child h2{font-size:19px!important}
   #invoicePrint .invoice-header .invoice-number{font-size:10px!important;padding:4px 6px!important}
-  #invoicePrint .invoice-header > div:last-child{font-size:10px!important}
-  #invoicePrint .invoice-document > .recipient-block{font-size:13px!important;padding:0 12px!important}
-  #invoicePrint .invoice-document > .tablewrap{margin:14px 12px 0!important}
+  #invoicePrint .invoice-header>div:last-child{font-size:10px!important}
+  #invoicePrint .invoice-document>hr{margin:7px 12px 10px!important}
+  #invoicePrint .invoice-document>.recipient-block{padding:0 12px!important}
+  #invoicePrint .invoice-document>.tablewrap{margin:14px 12px 0!important}
   #invoicePrint .invoice-document thead th,
-  #invoicePrint .invoice-document tbody td{font-size:11px!important;padding:8px 5px!important}
+  #invoicePrint .invoice-document tbody td{font-size:10px!important;padding:8px 4px!important}
   #invoicePrint .totals{width:calc(100% - 24px)!important;margin-right:12px!important;font-size:12px!important}
-  #invoicePrint .invoice-footer{margin:14px 12px!important;padding:12px!important;gap:10px!important;font-size:11px!important}
+  #invoicePrint .invoice-footer{margin:14px 12px!important;padding:11px!important;gap:8px!important;font-size:10px!important}
   #invoicePrint .footer-icon{width:22px!important;height:22px!important;flex-basis:22px!important}
-  #invoicePrint .invoice-signoff{width:34%!important;max-width:34%!important;flex:0 0 34%!important;padding:8px!important}
-  #invoicePrint .invoice-signoff > div:nth-child(2){height:44px!important}
+  #invoicePrint .invoice-signoff{width:34%!important;max-width:34%!important;flex:0 0 34%!important;padding:7px!important}
+  #invoicePrint .invoice-signoff>div:nth-child(2){height:42px!important}
 }
+/* Cetak: warna tetap untuk A4/A5, thermal mengikuti aturan monokrom yang sudah ada */
 @media print{
-  body.print-a4 #invoicePrint .invoice-header,
-  body.print-a5 #invoicePrint .invoice-header{
-    min-height:48mm!important;padding:7mm 7mm 10mm!important;
-    background-size:100% 100%!important;
+  #invoicePrint .invoice-header,
+  #invoicePrint .invoice-footer,
+  #invoicePrint .totals,
+  #invoicePrint .invoice-number,
+  #invoicePrint .invoice-document thead th,
+  #invoicePrint .totals .grand{
+    -webkit-print-color-adjust:exact!important;print-color-adjust:exact!important;
   }
-  body.print-a4 #invoicePrint .invoice-header .invoice-logo{width:25mm!important;height:25mm!important;max-width:25mm!important;max-height:25mm!important}
-  body.print-a5 #invoicePrint .invoice-header .invoice-logo{width:20mm!important;height:20mm!important;max-width:20mm!important;max-height:20mm!important}
-  body.print-a4 #invoicePrint .invoice-header h2{font-size:21pt!important}
+  #invoicePrint .invoice-header{min-height:48mm!important;padding:7mm 7mm 10mm!important}
+  #invoicePrint .invoice-header .invoice-logo{width:25mm!important;height:25mm!important;max-width:25mm!important;max-height:25mm!important}
+  #invoicePrint .invoice-header h2{font-size:21pt!important}
+  #invoicePrint .invoice-header .biz-meta{font-size:10pt!important}
+  #invoicePrint .invoice-header>div:last-child h2{font-size:24pt!important}
+  #invoicePrint .invoice-document>hr{margin:3mm 3.2% 4mm!important}
+  #invoicePrint .invoice-document thead th{font-size:9pt!important;padding:3mm 2mm!important}
+  #invoicePrint .invoice-document tbody td{font-size:9pt!important;padding:3mm 2mm!important}
+  #invoicePrint .totals{font-size:9pt!important}
+  #invoicePrint .invoice-footer{font-size:9pt!important;padding:4mm 5mm!important}
+  body.print-a5 #invoicePrint .invoice-header{min-height:38mm!important;padding:5mm 5mm 7mm!important}
+  body.print-a5 #invoicePrint .invoice-header .invoice-logo{width:19mm!important;height:19mm!important;max-width:19mm!important;max-height:19mm!important}
   body.print-a5 #invoicePrint .invoice-header h2{font-size:16pt!important}
-  body.print-a4 #invoicePrint .invoice-header .biz-meta{font-size:10pt!important}
-  body.print-a5 #invoicePrint .invoice-header .biz-meta{font-size:8pt!important}
-  body.print-a4 #invoicePrint .invoice-header > div:last-child h2{font-size:24pt!important}
-  body.print-a5 #invoicePrint .invoice-header > div:last-child h2{font-size:19pt!important}
-  body.print-a4 #invoicePrint .invoice-document thead th,
-  body.print-a4 #invoicePrint .invoice-document tbody td{font-size:9pt!important;padding:7px 6px!important}
+  body.print-a5 #invoicePrint .invoice-header .biz-meta{font-size:7.5pt!important}
+  body.print-a5 #invoicePrint .invoice-header>div:last-child h2{font-size:18pt!important}
   body.print-a5 #invoicePrint .invoice-document thead th,
-  body.print-a5 #invoicePrint .invoice-document tbody td{font-size:7.5pt!important;padding:5px 4px!important}
-  body.print-a4 #invoicePrint .recipient-block{font-size:10pt!important}
-  body.print-a5 #invoicePrint .recipient-block{font-size:8pt!important}
-  body.print-a4 #invoicePrint .totals{font-size:9pt!important}
-  body.print-a5 #invoicePrint .totals{font-size:8pt!important}
-  body.print-a4 #invoicePrint .invoice-footer{font-size:9pt!important}
-  body.print-a5 #invoicePrint .invoice-footer{font-size:8pt!important}
+  body.print-a5 #invoicePrint .invoice-document tbody td{font-size:7.5pt!important;padding:2mm 1.5mm!important}
+  body.print-a5 #invoicePrint .totals{width:54%!important;font-size:7.5pt!important}
+  body.print-a5 #invoicePrint .invoice-footer{font-size:7.5pt!important}
 }
 </style>
 
