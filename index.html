@@ -542,6 +542,110 @@ header .brand{flex:1}
   body.print-a5 #invoicePrint .invoice-header h2{color:#164b91!important}
 }
 
+
+/* =====================================================
+   ABSTRACT BLUE WAVE — HEADER NOTA IR PRODUCTION
+   Dipasang sebagai override terakhir agar menggantikan
+   background header lama. Thermal tetap hitam-putih.
+===================================================== */
+
+/* Preview nota di layar */
+#invoicePrint .invoice-header {
+  position: relative !important;
+  overflow: hidden !important;
+  isolation: isolate !important;
+  background:
+    linear-gradient(
+      145deg,
+      transparent 0 73%,
+      rgba(180, 230, 255, .75) 73.2% 78%,
+      rgba(255, 255, 255, .9) 78.2% 84%,
+      rgba(0, 157, 224, .85) 84.2% 100%
+    ),
+    linear-gradient(
+      180deg,
+      #e5f5ff 0%,
+      #ffffff 45%,
+      #f5fbff 100%
+    ) !important;
+  border-bottom: 3px solid #078bd2 !important;
+}
+
+#invoicePrint .invoice-header::before {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 0 !important;
+  inset: 0 !important;
+  background:
+    radial-gradient(
+      ellipse 90% 100% at 34% 0%,
+      transparent 0 69%,
+      rgba(255,255,255,.95) 69.5% 83%,
+      transparent 83.5%
+    ),
+    linear-gradient(
+      150deg,
+      transparent 0 57%,
+      rgba(205,239,255,.85) 57.5% 65%,
+      transparent 65.5%
+    ) !important;
+  pointer-events: none !important;
+}
+
+#invoicePrint .invoice-header::after {
+  content: "" !important;
+  position: absolute !important;
+  z-index: 0 !important;
+  left: -3% !important;
+  bottom: -1px !important;
+  width: 106% !important;
+  height: 20mm !important;
+  background:
+    linear-gradient(
+      105deg,
+      #078bd2 0%,
+      #078bd2 18%,
+      transparent 18.5%,
+      transparent 83%,
+      #00a6e8 83.5%,
+      #087bc5 100%
+    ) !important;
+  clip-path: polygon(
+    0 65%, 15% 100%, 38% 92%, 57% 65%,
+    76% 18%, 90% 0, 100% 0, 100% 100%, 0 100%
+  ) !important;
+  pointer-events: none !important;
+}
+
+#invoicePrint .invoice-header > div {
+  position: relative !important;
+  z-index: 2 !important;
+}
+
+@media print {
+  body.print-a4 #invoicePrint .invoice-header,
+  body.print-a5 #invoicePrint .invoice-header {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
+/* Thermal: paksa tetap polos hitam-putih tanpa abstrak */
+@media print {
+  body.print-thermal80 #invoicePrint .invoice-header,
+  body.print-thermal58 #invoicePrint .invoice-header {
+    background: #fff !important;
+    border-bottom: 1px dashed #000 !important;
+  }
+  body.print-thermal80 #invoicePrint .invoice-header::before,
+  body.print-thermal80 #invoicePrint .invoice-header::after,
+  body.print-thermal58 #invoicePrint .invoice-header::before,
+  body.print-thermal58 #invoicePrint .invoice-header::after {
+    display: none !important;
+    content: none !important;
+  }
+}
+
 </style>
 </head>
 <body>
