@@ -214,7 +214,22 @@ async function deleteInvoice(id){
 }
 async function recordPayment(id){let x=(await all('invoices')).find(z=>z.id===id);let left=x.total-(x.paid||0);if(left<=0){alert('Nota sudah lunas.');return}let v=prompt('Masukkan nominal pembayaran. Sisa tagihan: '+rupiah(left));if(v===null)return;let n=Number(v);if(!Number.isFinite(n)||n<=0||n>left){alert('Nominal tidak valid.');return}let method=prompt('Metode pembayaran (Tunai/Transfer/QRIS):','Transfer')||'Transfer';await put('payments',{id:uid(),invoiceId:id,amount:n,date:dateNow(),method,status:'BERHASIL'});x.paid=(x.paid||0)+n;x.status=x.paid>=x.total?'LUNAS':'BELUM LUNAS';await put('invoices',x);viewInvoice(id)}
 async function editInvoice(id){let x=(await all('invoices')).find(z=>z.id===id);if(!x)return;if((x.paid||0)>0&&!confirm('Nota sudah memiliki pembayaran. Mengubah nilai nota dapat memengaruhi sisa tagihan. Lanjutkan?'))return;editingId=id;showPage('create');document.getElementById('formTitle').textContent='Edit Nota';for(let [k,v] of Object.entries({invNo:x.number,invDate:x.date,invDue:x.due,invCustomer:x.customer,invPhone:x.phone,invDiscount:x.discount,invNote:x.note,invPayNote:x.payNote}))document.getElementById(k).value=v||'';document.getElementById('items').innerHTML='';x.items.forEach(r=>addItem(r));calc()}
-async function shareInvoice(id){let x=(await all('invoices')).find(z=>z.id===id);let textMsg=`Nota ${x.number}\nPelanggan: ${x.customer}\nTotal: ${rupiah(x.total)}\nDibayar: ${rupiah(x.paid||0)}\nSisa: ${rupiah(x.total-(x.paid||0))}\nStatus: ${x.status}`;if(navigator.share){try{await navigator.share({title:'Nota '+x.number,text:textMsg})}catch(e){}}else{await navigator.clipboard?.writeText(textMsg);alert('Ringkasan nota disalin. Anda dapat menempelkannya ke WhatsApp.')}}
+async function shareInvoice(id){
+ let x=(await all('invoices')).find(z=>z.id===id);if(!x)return;
+ const textMsg=`Nota ${x.number}\nPelanggan: ${x.customer}\nTotal: ${rupiah(x.total)}\nDibayar: ${rupiah(x.paid||0)}\nSisa: ${rupiah(x.total-(x.paid||0))}\nStatus: ${x.status}`;
+ const btn=document.querySelector('#invoicePrint .actions button[onclick*="shareInvoice"]');
+ try{
+  if(!window.html2canvas){await new Promise((resolve,reject)=>{const sc=document.createElement('script');sc.src='https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js';sc.onload=resolve;sc.onerror=reject;document.head.appendChild(sc)})}
+  const target=document.querySelector('#invoicePrint .panel');
+  const canvas=await html2canvas(target,{backgroundColor:'#ffffff',scale:2,useCORS:true,logging:false,windowWidth:Math.max(target.scrollWidth,900)});
+  const blob=await new Promise(resolve=>canvas.toBlob(resolve,'image/png'));
+  if(!blob)throw new Error('Gambar nota gagal dibuat');
+  const file=new File([blob],`Nota-${String(x.number).replace(/[^a-z0-9_-]/gi,'-')}.png`,{type:'image/png'});
+  if(navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({title:'Nota '+x.number,text:textMsg,files:[file]});}
+  else if(navigator.share){const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=file.name;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);await navigator.share({title:'Nota '+x.number,text:textMsg});alert('Gambar nota sudah diunduh. Lampirkan gambar tersebut saat mengirim pesan.');}
+  else{const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download=file.name;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);await navigator.clipboard?.writeText(textMsg);alert('Gambar nota berhasil diunduh dan ringkasan disalin. Silakan lampirkan gambar saat membagikan.');}
+ }catch(e){console.error('Bagikan nota:',e);try{await navigator.clipboard?.writeText(textMsg)}catch(_){}alert('Gambar nota belum dapat dibagikan. Periksa koneksi internet, atau gunakan Cetak / Simpan PDF.');}
+}
 async function renderCustomers(){let a=await all('customers');document.getElementById('customerTable').innerHTML=a.length?'<div class="tablewrap"><table><tr><th>Nama</th><th>Telepon</th><th>Alamat</th><th></th></tr>'+a.map(x=>`<tr><td>${esc(x.name)}</td><td>${esc(x.phone||'-')}</td><td>${esc(x.address||'-')}</td><td><button class="small danger" onclick="removeRecord('customers','${x.id}')">Hapus</button></td></tr>`).join('')+'</table></div>':'<div class="empty">Belum ada pelanggan.</div>'}
 document.getElementById('customerForm').addEventListener('submit',async e=>{
  e.preventDefault();
