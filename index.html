@@ -473,6 +473,33 @@ header .brand{flex:1}
   }
 }
 
+
+/* Rapikan susunan NOTA, nomor nota, dan tanggal dengan jarak seragam */
+#invoicePrint .invoice-header > div:last-child {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  gap: 14px !important;
+  position: relative !important;
+  top: 8px !important;
+}
+#invoicePrint .invoice-header > div:last-child h2,
+#invoicePrint .invoice-header > div:last-child .invoice-number,
+#invoicePrint .invoice-header > div:last-child > div {
+  margin: 0 !important;
+  position: static !important;
+}
+#invoicePrint .invoice-header > div:last-child .invoice-number {
+  display: inline-block !important;
+}
+@media print {
+  #invoicePrint .invoice-header > div:last-child {
+    gap: 12px !important;
+    top: 6px !important;
+  }
+}
+
 </style>
 </head>
 <body>
