@@ -266,6 +266,166 @@ header .brand{flex:1}
  #invoicePrint .invoice-header,#invoicePrint .invoice-footer {-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
 }
 
+
+/* Revisi: nota polos biru terang, ringkas satu halaman */
+#invoicePrint .invoice-document {
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  color: #17324d !important;
+}
+#invoicePrint .invoice-header {
+  background: #eaf7ff !important;
+  background-image: none !important;
+  border: 1px solid #9bdcff !important;
+  border-bottom: 4px solid #16a5f5 !important;
+  border-radius: 8px !important;
+  min-height: 0 !important;
+  padding: 16px 18px !important;
+  gap: 12px !important;
+}
+#invoicePrint .invoice-header h2 {
+  color: #087fc4 !important;
+  margin: 0 0 4px !important;
+  font-weight: 800 !important;
+}
+#invoicePrint .invoice-header .invoice-logo {
+  width: 82px !important;
+  height: 82px !important;
+  max-width: 82px !important;
+  max-height: 82px !important;
+}
+#invoicePrint .invoice-header .invoice-number {
+  display: inline-block;
+  padding: 5px 9px !important;
+  color: #087fc4 !important;
+  background: #dff2ff !important;
+  border: 1px solid #8ed2fa !important;
+  border-radius: 6px !important;
+}
+#invoicePrint .invoice-header .meta-icon,
+#invoicePrint .invoice-footer .footer-icon {
+  color: #079bea !important;
+}
+#invoicePrint > .invoice-document > hr {
+  border: 0 !important;
+  border-top: 2px solid #b9e5fb !important;
+  margin: 12px 0 !important;
+}
+#invoicePrint .tablewrap {
+  border: 1px solid #9bdcff !important;
+  border-radius: 7px !important;
+  overflow: hidden !important;
+  margin-top: 12px !important;
+}
+#invoicePrint .tablewrap table {
+  border-collapse: collapse !important;
+  width: 100% !important;
+}
+#invoicePrint .tablewrap thead th {
+  background: #dff3ff !important;
+  color: #087fc4 !important;
+  border: 1px solid #a9def8 !important;
+  padding: 8px 9px !important;
+}
+#invoicePrint .tablewrap tbody td {
+  border: 1px solid #d2eaf7 !important;
+  padding: 7px 9px !important;
+}
+#invoicePrint .totals {
+  width: 46% !important;
+  max-width: 420px !important;
+  margin: 12px 0 14px auto !important;
+  padding: 9px 12px !important;
+  background: #f1faff !important;
+  border: 1px solid #9bdcff !important;
+  border-radius: 8px !important;
+  gap: 5px !important;
+}
+#invoicePrint .totals .grand {
+  background: #dff3ff !important;
+  color: #087fc4 !important;
+  border-top: 1px solid #8ed2fa !important;
+  padding: 7px 5px !important;
+  font-size: 18px !important;
+}
+#invoicePrint .invoice-footer {
+  background: #eff9ff !important;
+  background-image: none !important;
+  border: 1px solid #9bdcff !important;
+  border-radius: 8px !important;
+  min-height: 0 !important;
+  margin-top: 12px !important;
+  padding: 13px 15px !important;
+  gap: 14px !important;
+}
+#invoicePrint .invoice-footer .footer-label {
+  color: #087fc4 !important;
+  gap: 8px !important;
+}
+#invoicePrint .invoice-footer .footer-icon {
+  width: 27px !important;
+  height: 27px !important;
+  flex-basis: 27px !important;
+}
+#invoicePrint .invoice-footer .note-text {
+  margin: 4px 0 8px 35px !important;
+  padding: 5px 8px !important;
+  background: #e0f3ff !important;
+  border-radius: 5px !important;
+}
+#invoicePrint .invoice-footer .payment-text {
+  margin: 4px 0 0 35px !important;
+}
+#invoicePrint .invoice-signoff {
+  min-height: 120px !important;
+  border-left: 2px solid #8ed2fa !important;
+  padding: 5px 8px 5px 14px !important;
+}
+#invoicePrint .invoice-signoff div[style*="height:42px"] {
+  height: 26px !important;
+}
+#invoicePrint .invoice-signoff b {
+  color: #087fc4 !important;
+}
+@media print {
+  @page { size: A4 portrait; margin: 8mm; }
+  html, body { margin: 0 !important; padding: 0 !important; }
+  #invoicePrint { width: 100% !important; margin: 0 !important; padding: 0 !important; }
+  #invoicePrint .invoice-document {
+    width: 100% !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    font-size: 10pt !important;
+    line-height: 1.25 !important;
+    break-inside: avoid !important;
+    page-break-inside: avoid !important;
+  }
+  #invoicePrint .invoice-header { padding: 10px 13px !important; }
+  #invoicePrint .invoice-header .invoice-logo {
+    width: 66px !important; height: 66px !important;
+    max-width: 66px !important; max-height: 66px !important;
+  }
+  #invoicePrint .tablewrap { margin-top: 8px !important; }
+  #invoicePrint .tablewrap thead th,
+  #invoicePrint .tablewrap tbody td { padding: 5px 7px !important; }
+  #invoicePrint .totals { margin-top: 8px !important; margin-bottom: 8px !important; padding: 6px 9px !important; }
+  #invoicePrint .invoice-footer { margin-top: 8px !important; padding: 8px 10px !important; }
+  #invoicePrint .invoice-signoff { min-height: 92px !important; }
+  #invoicePrint .actions, #invoicePrint .no-print { display: none !important; }
+  #invoicePrint .invoice-header,
+  #invoicePrint .tablewrap thead th,
+  #invoicePrint .totals,
+  #invoicePrint .totals .grand,
+  #invoicePrint .invoice-footer {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
+  }
+}
+
 </style>
 </head>
 <body>
