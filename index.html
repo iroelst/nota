@@ -243,6 +243,61 @@ header .brand{flex:1}
  #invoicePrint .invoice-footer,#invoicePrint .totals,#invoicePrint .invoice-number,#invoicePrint .invoice-document thead th,#invoicePrint .totals .grand{ -webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
 }
 
+
+/* One-page A4 print optimization */
+@page{size:A4 portrait;margin:7mm 8mm}
+@media print{
+  html,body{width:100%!important;height:auto!important;min-height:0!important;font-size:8pt!important;line-height:1.18!important}
+  #invoicePrint>.invoice-document{
+    width:100%!important;max-height:none!important;overflow:visible!important;
+    border:1px solid #d8eafb!important;border-radius:7px!important;
+  }
+  #invoicePrint .invoice-header{
+    min-height:0!important;padding:7px 12px 9px!important;
+    border-bottom-width:2px!important;border-radius:6px 6px 0 0!important;
+  }
+  #invoicePrint .invoice-header .invoice-logo{
+    width:54px!important;height:54px!important;max-width:54px!important;max-height:54px!important;
+  }
+  #invoicePrint .invoice-header h2{font-size:15pt!important;margin:0 0 2px!important}
+  #invoicePrint .invoice-header .biz-meta{font-size:7.5pt!important;margin-top:1px!important;gap:4px!important}
+  #invoicePrint .invoice-header .meta-icon{width:12px!important;height:12px!important;flex-basis:12px!important}
+  #invoicePrint .invoice-number{font-size:8pt!important;padding:3px 7px!important;margin-top:2px!important}
+  #invoicePrint .invoice-document>hr{margin:6px 10px!important}
+  #invoicePrint .recipient-block{font-size:8pt!important;padding:0 10px!important;line-height:1.15!important}
+  #invoicePrint .invoice-document>.tablewrap{
+    margin:7px 10px 0!important;border-radius:5px!important;
+  }
+  #invoicePrint .invoice-document table{font-size:7.2pt!important;line-height:1.1!important}
+  #invoicePrint .invoice-document th{font-size:6.8pt!important;padding:4px 5px!important}
+  #invoicePrint .invoice-document td{padding:4px 5px!important;line-height:1.12!important}
+  #invoicePrint .totals{
+    width:48%!important;max-width:270px!important;margin:7px 10px 0 auto!important;
+    padding:5px 9px!important;border-radius:7px!important;font-size:7.5pt!important;
+  }
+  #invoicePrint .totals div{padding:2px 1px!important}
+  #invoicePrint .totals .grand{
+    margin:2px -9px!important;padding:4px 9px!important;font-size:10pt!important;
+  }
+  #invoicePrint .invoice-footer{
+    margin:8px 10px 8px!important;padding:8px 10px!important;
+    gap:10px!important;border-radius:7px!important;font-size:7.5pt!important;line-height:1.2!important;
+  }
+  #invoicePrint .footer-heading{gap:5px!important}
+  #invoicePrint .footer-icon{width:18px!important;height:18px!important;flex-basis:18px!important}
+  #invoicePrint .note-text{margin:3px 0 6px!important;padding:5px 7px!important}
+  #invoicePrint .invoice-signoff{
+    width:29%!important;max-width:29%!important;flex:0 0 29%!important;
+    padding:4px 6px!important;gap:3px!important;
+  }
+  #invoicePrint .invoice-signoff>div:nth-child(2){height:32px!important}
+  #invoicePrint .invoice-signoff b{font-size:8pt!important}
+  #invoicePrint .actions{display:none!important}
+  #invoicePrint .invoice-document *{break-inside:avoid;page-break-inside:avoid}
+  #invoicePrint .invoice-document table{break-inside:auto;page-break-inside:auto}
+  #invoicePrint .invoice-document tr{break-inside:avoid;page-break-inside:avoid}
+}
+
 </style>
 </head>
 <body>
