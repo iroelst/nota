@@ -154,6 +154,85 @@ header .brand{flex:1}
   #invoicePrint .print-footer{display:block!important}
 }
 
+
+/* Final template: match the supplied blue-wave invoice reference */
+#invoicePrint>.invoice-document{
+  position:relative!important;isolation:isolate;overflow:hidden!important;
+  border:0!important;border-radius:0!important;box-shadow:none!important;
+  background:#fff!important;padding:0!important;color:#172b42!important;
+}
+#invoicePrint .invoice-header{
+  position:relative;isolation:isolate;overflow:hidden;
+  min-height:175px;padding:28px 22px 24px!important;
+  border:0!important;border-bottom:5px solid #1685d3!important;border-radius:0 0 2px 2px;
+  background:
+   radial-gradient(ellipse 68% 95% at 45% -30%,#fff 0 60%,transparent 61%),
+   radial-gradient(ellipse 65% 100% at 68% -24%,#fff 0 58%,transparent 59%),
+   linear-gradient(145deg,#eaf7ff 0%,#f8fcff 48%,#d9f0ff 100%)!important;
+}
+#invoicePrint .invoice-header:before{
+  content:"";position:absolute;z-index:-1;left:-5%;right:-5%;bottom:-52px;height:100px;
+  background:linear-gradient(174deg,transparent 0 28%,#d9f1ff 29% 53%,#a8ddff 54% 72%,#168bdc 73% 100%);
+  clip-path:ellipse(75% 70% at 48% 100%);
+}
+#invoicePrint .invoice-header:after{
+  content:"";position:absolute;z-index:-1;right:-8%;top:-95px;width:56%;height:220px;
+  border-radius:0 0 0 100%;transform:rotate(-8deg);
+  background:linear-gradient(135deg,rgba(255,255,255,.95),rgba(221,244,255,.7));
+}
+#invoicePrint .invoice-header>div{position:relative;z-index:1}
+#invoicePrint .invoice-header h2{color:#123f83!important;font-weight:800!important;letter-spacing:.01em}
+#invoicePrint .invoice-header>div:last-child h2{font-size:30px!important;margin-bottom:8px!important}
+#invoicePrint .invoice-logo{width:145px!important;height:145px!important;max-width:145px!important;max-height:145px!important;object-fit:contain;flex:0 0 auto}
+#invoicePrint .invoice-number{display:inline-block;margin-top:5px;padding:7px 13px;border:1px solid #72b9e9;border-radius:8px;background:rgba(239,249,255,.88)!important;color:#104d98!important;font-weight:800}
+#invoicePrint> .invoice-document>hr{border:0!important;border-top:2px solid #dfe8ef!important;margin:17px 0 20px!important}
+#invoicePrint .tablewrap{overflow:hidden!important;border:1px solid #b9d9ef!important;border-radius:10px!important;margin-top:22px!important}
+#invoicePrint .tablewrap table{width:100%!important;min-width:0!important;border-collapse:collapse!important}
+#invoicePrint .tablewrap thead th{background:linear-gradient(180deg,#edf8ff,#dcefff)!important;color:#123f83!important;border:1px solid #c2dff3!important;border-bottom:2px solid #acd3ef!important;padding:12px 10px!important;font-size:12px!important}
+#invoicePrint .tablewrap tbody td{padding:12px 10px!important;border-bottom:1px solid #cfe2ef!important}
+#invoicePrint .tablewrap tbody tr:last-child td{border-bottom:0!important}
+#invoicePrint .totals{width:48%!important;max-width:465px!important;margin:14px 0 18px auto!important;padding:12px 17px!important;background:linear-gradient(145deg,#f4faff,#eaf6ff)!important;border:1px solid #c5e0f2!important;border-radius:11px!important}
+#invoicePrint .totals div{padding:6px 0!important}
+#invoicePrint .totals .grand{background:linear-gradient(90deg,#dff1ff,#b9e1ff)!important;color:#10478e!important;border-top:1px solid #9bc9e9!important;border-bottom:1px solid #c5e0f2!important;margin:5px -8px!important;padding:9px 8px!important;font-size:20px!important}
+#invoicePrint .invoice-footer{
+  position:relative;isolation:isolate;overflow:hidden;
+  margin-top:18px!important;padding:22px 22px!important;
+  background:linear-gradient(135deg,#eef8ff 0%,#f8fcff 55%,#e5f4ff 100%)!important;
+  border:1px solid #c6e2f4!important;border-radius:12px!important;
+}
+#invoicePrint .invoice-footer:before{
+ content:"";position:absolute;z-index:-1;left:-5%;right:-5%;bottom:-65px;height:130px;
+ background:linear-gradient(175deg,transparent 0 22%,rgba(215,241,255,.9) 23% 48%,#a9ddfb 49% 69%,#168bdc 70% 100%);
+ clip-path:ellipse(75% 68% at 50% 100%);
+}
+#invoicePrint .invoice-footer>div{position:relative;z-index:1}
+#invoicePrint .invoice-footer b{color:#123f83}
+#invoicePrint .invoice-signoff{border-left:2px solid #9bc9e8!important;min-height:165px;justify-content:space-between!important;padding:10px 10px 10px 22px!important}
+#invoicePrint .invoice-signoff b{color:#104d98!important}
+#invoicePrint .actions{border-top:1px solid #e2edf8;padding-top:12px}
+#invoicePrint.capture-mode .actions{display:none!important}
+@media(max-width:650px){
+ #invoicePrint .invoice-header{padding:18px 12px!important;min-height:135px}
+ #invoicePrint .invoice-logo{width:82px!important;height:82px!important;max-width:82px!important;max-height:82px!important}
+ #invoicePrint .invoice-header>div:last-child h2{font-size:21px!important}
+ #invoicePrint .invoice-footer{gap:12px!important;padding:16px 12px!important}
+ #invoicePrint .invoice-signoff{width:34%!important;max-width:34%!important;flex:0 0 34%!important;padding-left:10px!important}
+ #invoicePrint .totals{width:65%!important}
+}
+@media print{
+ @page{size:A4 portrait;margin:12mm}
+ html,body{-webkit-print-color-adjust:exact!important;print-color-adjust:exact!important}
+ #invoicePrint>.invoice-document{width:100%!important;overflow:hidden!important;background:#fff!important}
+ #invoicePrint .invoice-header{min-height:145px!important;padding:18px 16px!important;border-bottom:4px solid #1685d3!important}
+ #invoicePrint .invoice-logo{width:112px!important;height:112px!important;max-width:112px!important;max-height:112px!important}
+ #invoicePrint .invoice-header>div:last-child h2{font-size:24px!important}
+ #invoicePrint .tablewrap{overflow:visible!important}
+ #invoicePrint .tablewrap thead th{background:#e5f3ff!important}
+ #invoicePrint .totals{width:48%!important;max-width:390px!important;break-inside:avoid;page-break-inside:avoid}
+ #invoicePrint .invoice-footer{break-inside:avoid;page-break-inside:avoid;background:#eef8ff!important}
+ #invoicePrint .actions{display:none!important}
+}
+
 </style>
 </head>
 <body>
@@ -224,7 +303,7 @@ function tableInvoices(a){if(!a.length)return '<div class="empty">Belum ada nota
 async function renderHistory(){let a=(await all('invoices')).sort((x,y)=>y.date.localeCompare(x.date));let q=(document.getElementById('searchInvoice').value||'').toLowerCase();a=a.filter(x=>(x.number+x.customer).toLowerCase().includes(q));document.getElementById('historyTable').innerHTML=tableInvoices(a)}
 document.getElementById('searchInvoice').oninput=renderHistory;
 async function viewInvoice(id){let x=(await all('invoices')).find(z=>z.id===id);if(!x)return;let p=(await all('profile'))[0]||{};let pay=(await all('payments')).filter(z=>z.invoiceId===id);let paid=pay.reduce((s,z)=>s+z.amount,0);if(!pay.length)paid=x.paid||0;
-let el=document.getElementById('invoicePrint');el.innerHTML=`<div class="panel invoice-document"><div class="invoice-header" style="display:flex;justify-content:space-between;gap:20px;align-items:center"><div style="display:flex;align-items:center;gap:16px;min-width:0">${p.logo?`<img class="invoice-logo" src="${p.logo}" style="width:90px;height:90px;object-fit:contain;flex:0 0 auto">`:''}<div style="min-width:0"><h2 style="color:var(--navy);margin:0 0 5px">${esc(p.name||'Nama Usaha')}</h2><div>${esc(p.address||'')}</div><div>${esc(p.phone||'')}</div></div></div><div style="text-align:right"><h2>NOTA</h2><b class="invoice-number">${esc(x.number)}</b><div>Tanggal: ${esc(x.date)}</div>${x.due?'<div>Jatuh tempo: '+esc(x.due)+'</div>':''}</div></div><hr style="border:0;border-top:1px solid #ddd;margin:20px 0"><b>Kepada:</b><div>${esc(x.customer)}</div><div>${esc(x.phone||'')}</div><div class="tablewrap" style="margin-top:20px"><table><thead><tr><th>No</th><th>Nama Barang</th><th>Qty</th><th class="num">Harga</th><th class="num">Jumlah</th></tr></thead><tbody>${x.items.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(r.name)}</td><td>${r.qty}</td><td class="num">${moneyHTML(r.price)}</td><td class="num">${moneyHTML(r.amount)}</td></tr>`).join('')}</tbody></table></div><div class="totals"><div><span>Subtotal</span><b>${moneyHTML(x.subtotal)}</b></div><div><span>Diskon</span><b>${moneyHTML(x.discount)}</b></div><div class="grand"><span>Total</span><span>${moneyHTML(x.total)}</span></div><div><span>Dibayar</span><b>${moneyHTML(paid)}</b></div><div><span>Sisa</span><b>${moneyHTML(Math.max(0,x.total-paid))}</b></div><div><span>Status</span><b>${paid>=x.total?'LUNAS':'BELUM LUNAS'}</b></div></div><div class="invoice-footer" style="display:flex;justify-content:space-between;align-items:stretch;gap:24px;margin-top:24px;padding:18px 16px;background:#f0f7ff;border:1px solid #d7e9fb;border-radius:12px"><div style="flex:1;min-width:0"><b>Catatan:</b><div>${esc(x.note||p.defaultNote||'Barang yang sudah dibeli tidak bisa dikembalikan. Terima kasih.')}</div>${(p.bankName||p.bankNumber||p.bankOwner)?`<br><b>Pembayaran:</b><div>${esc([p.bankName,p.bankNumber,p.bankOwner?'a.n. '+p.bankOwner:''].filter(Boolean).join(' • '))}</div>`:''}</div><div class="invoice-signoff" style="width:230px;max-width:35%;flex:0 0 230px;border-left:1px solid #cbdff3;padding:8px 10px 8px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center"><div>Hormat Kami,</div><div style="height:58px"></div><b style="color:#174f91">${esc(p.signerName||'')}</b></div></div><div class="actions no-print"><button onclick="window.print()">Cetak / Simpan PDF</button><button class="secondary" onclick="recordPayment('${x.id}')">Catat Pembayaran</button><button class="secondary" onclick="editInvoice('${x.id}')">Edit Nota</button><button class="secondary" onclick="shareInvoice('${x.id}')">Bagikan</button><button class="secondary" onclick="showPage('history')">Kembali</button></div></div>`;
+let el=document.getElementById('invoicePrint');el.innerHTML=`<div class="panel invoice-document"><div class="invoice-header" style="display:flex;justify-content:space-between;gap:20px;align-items:center"><div style="display:flex;align-items:center;gap:16px;min-width:0">${p.logo?`<img class="invoice-logo" src="${p.logo}" style="width:90px;height:90px;object-fit:contain;flex:0 0 auto">`:''}<div style="min-width:0"><h2 style="color:var(--navy);margin:0 0 5px">${esc(p.name||'Nama Usaha')}</h2><div>${esc(p.address||'')}</div><div>${esc(p.phone||'')}</div></div></div><div style="text-align:right"><h2>NOTA</h2><b class="invoice-number">${esc(x.number)}</b><div>Tanggal: ${esc(x.date)}</div>${x.due?'<div>Jatuh tempo: '+esc(x.due)+'</div>':''}</div></div><hr style="border:0;border-top:1px solid #ddd;margin:20px 0"><b>Kepada:</b><div>${esc(x.customer)}</div><div>${esc(x.phone||'')}</div><div class="tablewrap" style="margin-top:20px"><table><thead><tr><th>No</th><th>Nama Barang</th><th>Qty</th><th class="num">Harga</th><th class="num">Jumlah</th></tr></thead><tbody>${x.items.map((r,i)=>`<tr><td>${i+1}</td><td>${esc(r.name)}</td><td>${r.qty}</td><td class="num">${moneyHTML(r.price)}</td><td class="num">${moneyHTML(r.amount)}</td></tr>`).join('')}</tbody></table></div><div class="totals"><div><span>Subtotal</span><b>${moneyHTML(x.subtotal)}</b></div><div><span>Diskon</span><b>${moneyHTML(x.discount)}</b></div><div class="grand"><span>Total</span><span>${moneyHTML(x.total)}</span></div><div><span>Dibayar</span><b>${moneyHTML(paid)}</b></div><div><span>Sisa</span><b>${moneyHTML(Math.max(0,x.total-paid))}</b></div><div><span>Status</span><b>${paid>=x.total?'LUNAS':'BELUM LUNAS'}</b></div></div><div class="invoice-footer" style="display:flex;justify-content:space-between;align-items:stretch;gap:24px;margin-top:24px;padding:18px 16px;background:#f0f7ff;border:1px solid #d7e9fb;border-radius:12px"><div style="flex:1;min-width:0"><b>Catatan:</b><div>${esc(x.note||p.defaultNote||'Barang yang sudah dibeli tidak bisa dikembalikan. Terima kasih.')}</div>${(p.bankName||p.bankNumber||p.bankOwner)?`<br><b>Pembayaran:</b><div>${esc([p.bankName,p.bankNumber,p.bankOwner?'a.n. '+p.bankOwner:''].filter(Boolean).join(' • '))}</div>`:''}</div><div class="invoice-signoff" style="width:230px;max-width:35%;flex:0 0 230px;border-left:1px solid #cbdff3;padding:8px 10px 8px 22px;text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center"><div>Hormat Kami,</div><div style="height:42px;font-style:italic">Ttd</div><b style="color:#174f91">${esc(p.signerName||'')}</b></div></div><div class="actions no-print"><button onclick="window.print()">Cetak / Simpan PDF</button><button class="secondary" onclick="recordPayment('${x.id}')">Catat Pembayaran</button><button class="secondary" onclick="editInvoice('${x.id}')">Edit Nota</button><button class="secondary" onclick="shareInvoice('${x.id}')">Bagikan</button><button class="secondary" onclick="showPage('history')">Kembali</button></div></div>`;
 showPage('invoicePrint')}
 async function deleteInvoice(id){
  let x=(await all('invoices')).find(z=>z.id===id);if(!x)return;
